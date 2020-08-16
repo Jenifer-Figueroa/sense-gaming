@@ -9,7 +9,8 @@ ProyectoIntegrador
 
 
 ### Morales, Hernán
-
+- 26 años
+- Tecnico en electronica
 
 
 ### Urzua Bozza, Daniel
