@@ -16,7 +16,7 @@ ProyectoIntegrador
 - 22 años
 
 
-### Huuaman, Liset
+### Huaman, Liset
 
 
 
