@@ -23,6 +23,7 @@
 .footer{
     background-color: #212529;
     margin-top: 50px;
+    list-style: none;
 }
 
 .footer, p{
