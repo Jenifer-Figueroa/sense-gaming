@@ -1,6 +1,7 @@
 # Grupo2-SenseGaming
 ProyectoIntegrador
 
+## Primer Sprint
 
 ## Integrantes
 
@@ -39,3 +40,7 @@ El publico al cual apuntamos es al cliente con cierto conocimiento de hardware q
 - [Gezatek Computacion](https://www.gezatek.com.ar/)
 - [Mexx](https://www.mexx.com.ar/)
 - [FullH4rd](https://www.fullh4rd.com.ar/)
+
+## Segundo Sprint
+
+### [Tablero de Trabajo](https://trello.com/b/QYNIbZ0X/grupo-2-sensegaming)
