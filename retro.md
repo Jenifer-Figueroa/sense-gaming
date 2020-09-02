@@ -1,20 +1,20 @@
 # Sprint 2: Retro
 
 **Empezar a hacer:**
--Dividir las tareas.
--Organizar para hacer reunionnes online para la actividad.
+- Dividir las tareas.
+- Organizar para hacer reunionnes online para la actividad.
 
 **Hacer más:**
--Mas comunicacion con el equipo.
+- Mas comunicacion con el equipo.
 
 **Seguir haciendo:**
--Estudiar y mejorar habilidades.
--Los sprint con creatividad.
--Realizar los sprints a tiempo.
+- Estudiar y mejorar habilidades.
+- Los sprint con creatividad.
+- Realizar los sprints a tiempo.
 
 **Hacer menos:**
--Perder el seguimiento con el proyecto.
--Las actividades a ultimo momento.
+- Perder el seguimiento con el proyecto.
+- Las actividades a ultimo momento.
 
 **Dejar de hacer:**
--Perder los animos con el proyecto.
+- Perder los animos con el proyecto.
