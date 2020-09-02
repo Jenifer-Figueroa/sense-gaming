@@ -8,8 +8,20 @@
 
 .footer{
     background-color: #212529;
+    margin-top: 50px;
+    
+}
+
+.footer, p{
+    color: white;
 }
 
 .nav{
+    background-color: #212529;
+}
+
+.redes{
+    list-style: none;
+    margin-top: 50px;
     background-color: #212529;
 }
