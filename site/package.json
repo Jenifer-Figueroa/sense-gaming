@@ -1,0 +1,22 @@
+{
+  "name": "proyecto",
+  "version": "1.0.0",
+  "description": "ProyectoIntegrador",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HernanMorales94/Grupo_2_SenseGaming.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HernanMorales94/Grupo_2_SenseGaming/issues"
+  },
+  "homepage": "https://github.com/HernanMorales94/Grupo_2_SenseGaming#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
