@@ -44,3 +44,5 @@ El publico al cual apuntamos es al cliente con cierto conocimiento de hardware q
 ## Segundo Sprint
 
 ### [Tablero de Trabajo](https://trello.com/b/QYNIbZ0X/grupo-2-sensegaming)
+
+### Retrospectiva: [retro.md](https://github.com/HernanMorales94/Grupo_2_SenseGaming/blob/master/retro.md)
