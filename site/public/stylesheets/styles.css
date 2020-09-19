@@ -234,3 +234,11 @@ body, .centrado{
       color: #777;
     }
   }
+
+.detail{
+    color: black;
+  }
+
+  .destacados{
+    flex-wrap: wrap;
+  }

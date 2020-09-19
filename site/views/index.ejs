@@ -19,8 +19,6 @@
 
         </div>
     </section>
-
-
     <!--/carrousel-->
 
     <!--destacados-->
@@ -32,40 +30,24 @@
                     <h2>DESTACADOS</h2>
                 </div>
             </div>
+
+            <% destacado.forEach(producto => { %>            
+            <div class="container destacados">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="/images/disco sata.jpg" alt="Card image cap">
+                <div class="col-md-4 col-12 ">
+                    <div class="card ">
+                        <img class="card-img-top" src="/images/products/<%= producto.image %>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">DISCO DURO HDD 1 TB</h5>
+                            <h5 class="card-title"><%= producto.name %></h5>
 
-                            <a href="/detalleProducto" class="btn btn-outline-danger">VER</a>
+                            <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger">VER</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="/images/fuente.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">FUENTE AEROCOOL CYLON</h5>
-
-                            <a href="/detalleProducto" class="btn btn-outline-danger">VER</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="/images/notebook.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">NOTEBOOK HP 240</h5>
-
-                            <a href="/detalleProducto" class="btn btn-outline-danger">VER</a>
-                        </div>
-                    </div>
-                </div>
             </div>
+        </div>
+            <% }) %>
         </div>
     </section>
     <!--/destacados-->
