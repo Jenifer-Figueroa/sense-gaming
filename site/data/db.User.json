@@ -1,0 +1,76 @@
+[
+ {
+
+ "id":1,
+ "first_name":"Iosep",
+ "last_name":"Wiley",
+ "email":"iwiley0@time.com",
+ "password":"ZmFmffZ",
+ "rol":"iwiley0"
+},
+
+{
+    "id":2,"first_name":"Berta",
+    "last_name":"Calbrathe",
+    "email":"bcalbrathe1@nbcnews.com",
+    "password":"97XVSNj0rnI5",
+    "rol":"bcalbrathe1"
+},
+
+{
+    "id":3,"first_name":"Emelen",
+    "last_name":"Grastye",
+    "email":"egrastye2@accuweather.com",
+    "password":"NZpis45A",
+    "rol":"egrastye2"
+},
+
+{
+    "id":4,"first_name":"Ermengarde",
+    "last_name":"Lodge",
+    "email":"elodge3@symantec.com",
+    "password":"C9L8LAgFTmn",
+    "rol":"elodge3"
+},
+
+{
+    "id":5,"first_name":"Beret",
+    "last_name":"Cregeen",
+    "email":"bcregeen4@jigsy.com",
+    "password":"PCWv1K8",
+    "rol":"bcregeen4"
+},
+
+{
+    "id":6,"first_name":"Joelynn",
+    "last_name":"Everly",
+    "email":"jeverly5@state.tx.us",
+    "password":"kslgKmCvK0w",
+    "rol":"jeverly5"
+},
+
+{
+    "id":7,"first_name":"Biron",
+    "last_name":"Claw",
+    "email":"bclaw6@walmart.com",
+    "password":"xozid7",
+    "rol":"bclaw6"
+},
+
+{
+    "id":8,"first_name":"Armando",
+    "last_name":"Palfreman",
+    "email":"apalfreman7@google.es",
+    "password":"t9dwsB8",
+    "rol":"apalfreman7"
+},
+
+{
+    "id":9,"first_name":"Vally",
+    "last_name":"Whitworth",
+    "email":"vwhitworth8@typepad.com",
+    "password":"zLAJgGEhla0",
+    "rol":"vwhitworth8"
+}
+
+]
