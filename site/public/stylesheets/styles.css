@@ -238,7 +238,3 @@ body, .centrado{
 .detail{
     color: black;
   }
-
-  .destacados{
-    flex-wrap: wrap;
-  }
