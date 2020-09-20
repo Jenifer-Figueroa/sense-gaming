@@ -13,9 +13,16 @@ module.exports= {
             return producto.id==idProducto
         })
         
-        res.render("productDetail",{
+        res.render("products",{
             title:"DETALLE DEL PRODUCTO",
             producto:producto[0]
+        })
+    },
+    search:function(req,res){
+        
+        res.render("index",{
+            title:"RESULTADO DE LA BUSQUEDA",
+            producto:productos
         })
     },
     busqueda:function(req,res){
