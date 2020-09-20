@@ -5,7 +5,10 @@ const dbProducts=require(path.join(__dirname, "..", "data", "dbProducts"))
 
 module.exports= {
     listar:function(req,res){
-        res.send(dbProducts)
+        res.render("products",{
+            title:"NUESTOS PRODUCTOS",
+            productos:dbProducts
+        })
     },
     detalle:function(req,res){
         idProducto = req.params.id;
