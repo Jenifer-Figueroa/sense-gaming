@@ -4,6 +4,6 @@ const productController = require("../controllers/productsController")
 
 router.get("/",productController.listar)
 router.get("/detalle/:id",productController.detalle)
-router.get("/busqueda",productController.busqueda)
+router.get("/search",productController.search)
 
 module.exports=router

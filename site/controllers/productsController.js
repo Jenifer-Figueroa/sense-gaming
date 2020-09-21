@@ -21,10 +21,22 @@ module.exports= {
             producto:producto[0]
         })
     },
-    busqueda:function(req,res){
-        
-        res.render("products",{
-            title:"RESULTADO DE LA BUSQUEDA"
-        })
+    search:function(req,res){
+        let busqueda = req.query.search;
+        if(busqueda == ""){
+            res.redirect('/')
+        }else{
+            let productos = [];
+            dbProducts.forEach(producto=>{
+                if(producto.name.toLowerCase().includes(busqueda.toLowerCase())){
+                    productos.push(producto)
+                }
+            })
+            res.render('products',{
+                title: "Resultado de la busqueda",
+                productos:productos
+            })
+        }
+     
     }
 }
