@@ -26,13 +26,14 @@ module.exports= {
         if(busqueda == ""){
             res.redirect('/')
         }else{
+
             let productos = [];
             dbProducts.forEach(producto=>{
                 if(producto.name.toLowerCase().includes(busqueda.toLowerCase())){
                     productos.push(producto)
                 }
             })
-            res.render('products',{
+            res.render('productSearch',{
                 title: "Resultado de la busqueda",
                 productos:productos
             })
