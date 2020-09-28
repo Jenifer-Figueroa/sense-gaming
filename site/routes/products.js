@@ -6,4 +6,8 @@ router.get("/",productController.listar)
 router.get("/detalle/:id",productController.detalle)
 router.get("/search",productController.search)
 
+router.get("/add", productController.agregar)
+
+router.post("/add", productController.publicar)
+
 module.exports=router
