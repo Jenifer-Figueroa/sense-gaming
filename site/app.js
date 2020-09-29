@@ -8,6 +8,7 @@ var methodOverride = require('method-override')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var register = require("./routes/register");
+var login = require("./routes/login");
 var productsRouter=require("./routes/products")
 /*var productAdd = require("./routes/productAdd")
 var productCart = require("./routes/productCart")
@@ -29,6 +30,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/register",register);
+app.use("/login",login);
 app.use("/products",productsRouter);
 /*app.use("/productAdd", productAdd)
 app.use("/carrito", productCart)
