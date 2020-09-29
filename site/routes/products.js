@@ -7,7 +7,10 @@ router.get("/detalle/:id",productController.detalle)
 router.get("/search",productController.search)
 
 router.get("/add", productController.agregar)
-
 router.post("/add", productController.publicar)
+
+router.get("/edit", productController.vista)
+router.get('/show/:id', productController.show)
+router.put('/show/:id', productController.editar)
 
 module.exports=router

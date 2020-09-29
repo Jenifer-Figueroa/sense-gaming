@@ -24,7 +24,7 @@
     <!--destacados-->
     <section id="destacados" class="mt-4">
         <div class="container">
-            <div class="row">
+            <div>
                 <div class="col text-center">
                     <small>LOS MAS</small>
                     <h2>DESTACADOS</h2>
@@ -34,19 +34,19 @@
 
             <% destacado.forEach(producto => { %>            
             <div class="container ">
-            <div class="row justify-content-center justify-content-md-start">
-                <div class="col-md-4 col-12 ">
-                    <div class="card ">
-                        <img class="card-img-top" src="/images/products/<%= producto.image %>" alt="Card image cap">
+                <div class="row justify-content-center justify-content-md-start">
+                    <div class="col-md-4 col-12 ">
+                        <div class="card ">
+                            <img class="card-img-top" src="/images/products/<%= producto.image %>" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><%= producto.name %></h5>
 
                             <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger">VER</a>
                         </div>
+                        </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
         </div>
             <% }) %>
         </div>

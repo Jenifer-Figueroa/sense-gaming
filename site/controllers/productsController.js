@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require("path")
-const { param } = require("../routes/products")
 const dbProducts=require(path.join(__dirname, "..", "data", "dbProducts"))
 
 module.exports= {
@@ -55,11 +54,46 @@ module.exports= {
         let newProduct ={
             id: lastId +1,
             name: req.body.name,
+            price: Number(req.body.price),
             description: req.body.description,
             image: "default-image.png"
         }
         dbProducts.push(newProduct);
         fs.writeFileSync(path.join(__dirname, "..", "data","productos.json"),JSON.stringify(dbProducts),'utf-8')
         res.redirect('/products')
+    },
+    vista:function(req, res){
+        res.render('productVistaEdit',{
+            title: "Mis productos",
+            productos:dbProducts
+        })
+    },
+    show:function(req, res){
+        let idProducto = req.params.id;
+        
+        let resultado = dbProducts.filter(producto=>{
+            return producto.id == idProducto
+        })
+        res.render('productShow',{
+            title: "VER/ EDITAR PRODUCTO",
+            producto: resultado[0],
+            
+        })
+    },
+    editar:function(req, res){
+        let idProducto=req.params.id;
+
+        dbProducts.forEach(producto=>{
+            if(producto.id == idProducto){
+                
+                producto.price = req.body.price,
+                producto.name = req.body.name,
+                producto.category = req.body.category,
+                producto.description = req.body.description,
+                producto.image= producto.image
+            }
+        })
+        fs.writeFileSync(path.join(__dirname,'..','data','productos.json'),JSON.stringify(dbProducts))
+        res.redirect('/products/detalle/'+ req.params.id)
     }
 }
