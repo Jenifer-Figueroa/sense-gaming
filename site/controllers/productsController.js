@@ -95,5 +95,18 @@ module.exports= {
         })
         fs.writeFileSync(path.join(__dirname,'..','data','productos.json'),JSON.stringify(dbProducts))
         res.redirect('/products/detalle/'+ req.params.id)
+    },
+    eliminar:function(req, res){
+        let indiceDelProducto;
+        dbProducts.forEach(producto=>{
+            if(producto.id == req.params.id){
+                indiceDelProducto = dbProducts.indexOf(producto)
+            }
+        })
+        dbProducts.splice(indiceDelProducto, 1)
+
+        let productosJson = JSON.stringify(dbProducts)
+        fs.writeFileSync(path.join(__dirname,'..','data','productos.json'),productosJson)
+        res.redirect('/products/edit')
     }
 }

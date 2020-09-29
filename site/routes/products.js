@@ -13,4 +13,6 @@ router.get("/edit", productController.vista)
 router.get('/show/:id', productController.show)
 router.put('/show/:id', productController.editar)
 
+router.delete('/delete/:id', productController.eliminar)
+
 module.exports=router
