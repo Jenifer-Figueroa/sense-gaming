@@ -3,34 +3,29 @@
 <%- include('partials/head') %> 
 <body>
     <%- include('partials/header') %> 
-    <section class="principal">
+    <section class=" conteiner-fluid principal">
         <div class="container">
-            <div class="row">
+          <div>
               <div class="col-12 titulo">
-                <h2><%= title %></h2>
+                <br><h2><%= title %></h2><br>
               </div>
     
-              <% productos.forEach(producto => { %>
+            <div class="row">   
+                <% productos.forEach(producto => { %>
      
-                <div class="container destacados">
-                    <div class="row">
-                        <div class="col-md-4 col-12 ">
-                            <div class="card ">
-                                <img class="card-img-top" src="/images/products/<%= producto.image %>" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= producto.name %></h5>
+                                <div class="col-4 card ">
+                                    <img class="card-img-top" src="/images/products/<%= producto.image %>" alt="Card image cap">
+                                    <div class="card-body">
+                                      <h5 class="card-title"><%= producto.name %></h5>
         
-                                    <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger">VER</a>
+                                      <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger">VER</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-        
-                    </div>
-                </div>
-              <% }) %>
-              
-            </div>
 
+        
+                <% }) %>
+            </div>
+            
             
             </div>
         </div>
