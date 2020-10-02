@@ -5,7 +5,7 @@ ProyectoIntegrador
 
 ## Integrantes
 
-### Rusin, Nazarena
+### Rusin, Nazarena Florencia
 - 23 años
 - Estudiante de programacion
 
