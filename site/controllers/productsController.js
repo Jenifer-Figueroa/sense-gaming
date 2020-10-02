@@ -44,7 +44,7 @@ module.exports= {
             title: 'PUBLICAR PRODUCTO'
         })
     },
-    publicar: function(req, res){
+    publicar: function(req, res,next){
         let lastId =1;
         dbProducts.forEach(producto=>{
             if(producto.id > lastId){
@@ -56,7 +56,7 @@ module.exports= {
             name: req.body.name,
             price: Number(req.body.price),
             description: req.body.description,
-            image: "default-image.png"
+            image: req.files[0].filename
         }
         dbProducts.push(newProduct);
         fs.writeFileSync(path.join(__dirname, "..", "data","productos.json"),JSON.stringify(dbProducts),'utf-8')
@@ -75,12 +75,12 @@ module.exports= {
             return producto.id == idProducto
         })
         res.render('productShow',{
-            title: "VER/ EDITAR PRODUCTO",
+            title: "EDITAR PRODUCTO",
             producto: resultado[0],
             
         })
     },
-    editar:function(req, res){
+    editar:function(req, res, next){
         let idProducto=req.params.id;
 
         dbProducts.forEach(producto=>{

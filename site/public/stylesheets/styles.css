@@ -35,7 +35,7 @@
 }
 
 .detalle{
-    width: 500px;
+    width: 100%;
 }
 
 .compra{
@@ -241,4 +241,23 @@ body, .centrado{
 
 
 
-  /* product show*/
+  /* detalle producto*/
+.tit{
+  margin-top: 16px;
+  margin-bottom: 0px;
+  text-align: center;
+
+}
+/*edicion*/
+.edit{
+  padding-top: 10px;
+  text-align: center;
+}
+/* agregar*/
+.agregar{
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.formulario{
+  
+}

@@ -3,12 +3,13 @@
 
 <body>
     <!--detalle del producto-->
-    <div class="container">
-        <div class="">
+    <div class="container-fluid">
+        <div class="container">
             
-             <form class="row" action="/products/show/<%= producto.id %>?_method=PUT" method="POST">
+             <form class="row" action="/products/show/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
-                    <div class="col-6 imagen ">
+                    <div class="col-12 col-md-12 col-lg-6 imagen ">
+                        <h2 class="edit"><%= title %> </h2>
                         <figure>
                         <img src="/images/products/<%= producto.image %>" class= "mr-3 detalle pt-4" alt="..." >
                         </figure>
@@ -17,7 +18,7 @@
 
         
                 
-                        <div class="col-6 formulario">
+                        <div class="col-12 col-md-12 col-lg-6 formulario">
                             <br>
                             <input class="form-control" type="text" value="<%= producto.name%>" name="name"><br>
                             <label for="">DESCRIPCION</label>
