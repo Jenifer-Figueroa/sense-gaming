@@ -9,6 +9,10 @@ ProyectoIntegrador
 - 23 años
 - Estudiante de programacion
 
+### Figueroa, Jenifer
+- 26 años
+- Estudiante de programacion
+
 ## Descripcion del sitio
 
 SenseGaming es un marketplace digital especializado en productos gaming donde encontraran notebooks, perifericos, opciones de PC armadas, todo tipo de accesorios para su pc y hardware de primeras marcas para las diversas necesidades de los clientes.
@@ -32,3 +36,7 @@ El publico al cual apuntamos es al cliente con cierto conocimiento de hardware q
 ### [Tablero de Trabajo](https://trello.com/b/QYNIbZ0X/grupo-2-sensegaming)
 
 ### Retrospectiva: [retro.md](https://github.com/HernanMorales94/Grupo_2_SenseGaming/blob/master/retro.md)
+
+## Tercer Spring
+
+## Cuarto Spring
