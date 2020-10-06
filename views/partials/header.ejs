@@ -1,0 +1,85 @@
+<!--header-->
+<nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/images/SENSE GAMING PNG.png" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-end align-items-center">
+                <a href="/profile">
+                    <h5 class="mr-2"><%= (locals.user)?locals.user.nick:"Invitado" %> </h5>
+                </a>
+                <% if (locals.user) { %>
+                <a href="/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px" height="50px"
+                        class="avatar"></a>
+                <% } else{%>
+                <a href="/profile"><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+                <% } %>
+            </div>
+
+            <ul class="usuario navbar-nav">
+                <% if (typeof user == "undefined") { %>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">LOGIN</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/register">REGISTRO</a>
+                </li>
+                <% } else{ %>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">CERRAR SESION</a>
+                </li>
+                <% } %>
+            </ul>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/carrito">CARRO</a>
+            </li>
+            <li class="nav-item active">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        ADMIN
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/products/add">AGREGAR PRODUCTO</a>
+                        <a class="dropdown-item" href="/products/edit">MIS PRODUCTOS</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <form action="/products/search" method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-danger my-2 my-sm-0 .text-danger" type="submit">BUSCAR</button>
+        </form>
+    </div>
+</nav>
+
+<nav class="nav row text-center">
+    <a href="/products" class="btn btn-outline-danger col-12 col-lg">PC ARMADAS</a>
+    <a href="../products" class="btn btn-outline-danger col-12 col-lg">HARDWARE</a>
+    <a href="../products" class="btn btn-outline-danger col-12 col-lg">SOFTWARE</a>
+    <a href="../products" class="btn btn-outline-danger col-12 col-lg">NOTEBOOKS</a>
+    <a href="../products" class="btn btn-outline-danger col-12 col-lg">PERIFERICOS</a>
+
+    <div class="dropdown">
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                MAS CATEGORIAS
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="../products">IMPRESORAS</a>
+                <a class="dropdown-item" href="../products">ACCESORIOS</a>
+                <a class="dropdown-item" href="../products">MONITORES</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--/header-->
