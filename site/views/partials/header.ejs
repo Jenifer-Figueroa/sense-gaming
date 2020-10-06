@@ -10,13 +10,33 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-end align-items-center">
+                <a href="/profile">
+                    <h5 class="mr-2"><%= (locals.user)?locals.user.nick:"Invitado" %> </h5>
+                </a>
+                <% if (locals.user) { %>
+                <a href="/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px" height="50px"
+                        class="avatar"></a>
+                <% } else{%>
+                <a href="/profile"><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+                <% } %>
+            </div>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="/login">LOGIN</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/register">REGISTRO</a>
-            </li>
+            <ul class="usuario navbar-nav">
+                <% if (typeof user == "undefined") { %>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">LOGIN</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/register">REGISTRO</a>
+                </li>
+                <% } else{ %>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">CERRAR SESION</a>
+                </li>
+                <% } %>
+            </ul>
+
             <li class="nav-item active">
                 <a class="nav-link" href="/carrito">CARRO</a>
             </li>
