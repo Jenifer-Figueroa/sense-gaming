@@ -25,14 +25,26 @@
             <ul class="usuario navbar-nav">
                 <% if (typeof user == "undefined") { %>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/login">LOGIN</a>
+                    <a class="nav-link" href="/users/login">LOGIN</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/register">REGISTRO</a>
+                    <a class="nav-link" href="/users/register">REGISTRO</a>
                 </li>
                 <% } else{ %>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/login">CERRAR SESION</a>
+                    <a class="nav-link" href="/users/logout">CERRAR SESION</a>
+                </li>
+                <li class="nav-item active">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            PRODUCTOS
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/products/add">AGREGAR PRODUCTO</a>
+                            <a class="dropdown-item" href="/products/edit">MIS PRODUCTOS</a>
+                        </div>
+                    </div>
                 </li>
                 <% } %>
             </ul>
@@ -40,18 +52,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/carrito">CARRO</a>
             </li>
-            <li class="nav-item active">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        ADMIN
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/products/add">AGREGAR PRODUCTO</a>
-                        <a class="dropdown-item" href="/products/edit">MIS PRODUCTOS</a>
-                    </div>
-                </div>
-            </li>
+            
         </ul>
 
         <form action="/products/search" method="GET" class="form-inline my-2 my-lg-0">

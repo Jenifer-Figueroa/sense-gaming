@@ -4,13 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override')
+const session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var register = require("./routes/register");
-var login = require("./routes/login");
-var productsRouter=require("./routes/products")
-var profile = require ("./routes/profile")
+var productsRouter=require("./routes/products");
+
 /*var productCart = require("./routes/productCart")*/
 
 var app = express();
@@ -25,13 +24,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+app.use(session({secret:"senseGaming", resave: true, saveUninitialized: true}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use("/register",register);
-app.use("/login",login);
 app.use("/products",productsRouter);
-app.use("/profile",profile)
+
 /*app.use("/carrito", productCart)*/
 
 
