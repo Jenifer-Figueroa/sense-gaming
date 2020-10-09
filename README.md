@@ -5,7 +5,6 @@ ProyectoIntegrador
 
 ## Integrantes
 
-<<<<<<< HEAD
 ### Rusin, Nazarena Florencia
 - 23 años
 - Estudiante de programacion
@@ -14,26 +13,6 @@ ProyectoIntegrador
 - 26 años
 - Estudiante de programacion
 
-=======
-### Rusin, Nazarena
-- 23 años
-- Estudiante de programacion
-
-### Morales, Hernán
-- 26 años
-- Tecnico en electronica
-- Estudiante de programacion
-
-### Urzua Bozza, Daniel
-- 22 años
-- Estudiante de programacion
-
-### Huaman Marmanillo, Liset Angela
-- 23 años
-- Estudiante de programacion
-
-
->>>>>>> 1a93777... Sprint 4
 ## Descripcion del sitio
 
 SenseGaming es un marketplace digital especializado en productos gaming donde encontraran notebooks, perifericos, opciones de PC armadas, todo tipo de accesorios para su pc y hardware de primeras marcas para las diversas necesidades de los clientes.
