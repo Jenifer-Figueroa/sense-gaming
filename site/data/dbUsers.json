@@ -1,1 +1,11 @@
-[{"id":1,"nombre":"cosme","apellido":"fulanito","email":"cosme@gmail.com","avatar":"default.png","password":"$2b$10$BCKzr1wicEl4MtwgUgO11us2Pizo2kI9w4YN.441ECqWER9N9S8d.","rol":"user"}]
+[
+    {
+        "id": 1,
+        "nombre": "Jenifer",
+        "apellido": "Figueroa",
+        "email": "shennifer06@gmail.com",
+        "avatar": "default.png",
+        "password": "$2b$10$2yTSPVNgn8D0/fkDlFAedueBeIy5nh0DUIhtmbNoqkztEBDPHAZlq",
+        "rol": "user"
+    }
+]
