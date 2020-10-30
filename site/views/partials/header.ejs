@@ -11,14 +11,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-end align-items-center">
-                <a href="/profile">
+                <a href="/users/profile ">
                     <h5 class="mr-2"><%= (locals.user)?locals.user.nick:"Invitado" %> </h5>
                 </a>
                 <% if (locals.user) { %>
-                <a href="/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px" height="50px"
+                <a href="/users/profile/ <% locals.user.id %> "><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px" height="50px"
                         class="avatar"></a>
                 <% } else{%>
-                <a href="/profile"><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+                <a href="/users/profile"><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
                 <% } %>
             </div>
 

@@ -7,5 +7,23 @@
         "avatar": "default.png",
         "password": "$2b$10$2yTSPVNgn8D0/fkDlFAedueBeIy5nh0DUIhtmbNoqkztEBDPHAZlq",
         "rol": "user"
+    },
+    {
+        "id": 2,
+        "nombre": "cosme",
+        "apellido": "fulanito",
+        "email": "cosme@gmail.com",
+        "avatar": "default.png",
+        "password": "$2b$10$rAmEuZ/4yLSYCPszJv6s2erAvfhqRP1KZyQ5dNiXZ8C6Dt9lGmwE.",
+        "rol": "user"
+    },
+    {
+        "id": 3,
+        "nombre": "eric",
+        "apellido": "mena",
+        "email": "eric@gmail.com",
+        "avatar": "avatar-1603986082015.jpg",
+        "password": "$2b$10$7ionoRqYGPH79nTD9M/3aOfMhxUIsEtjvL...OiH5JDEEibQuxOyi",
+        "rol": "user"
     }
 ]

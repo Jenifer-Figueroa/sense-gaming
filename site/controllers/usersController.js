@@ -83,9 +83,22 @@ module.exports ={
     profile:function(req,res){
         res.render('profile',{
             title:"Perfil de usuario",
-            productos: dbProducts.filter(producto =>{
-                return producto.category != "visited" && producto.category != "in-sale"
-            })
+            usuarios : dbUsers
+            
+        })
+    },
+    profileEdit: function (req, res) {
+
+        let newUser = {
+            id: lastID + 1,
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+        }
+        dbUsers.push(newUser);
+        fs.writeFileSync(path.join(__dirname,'..','data','dbUsers.json'),JSON.stringify(dbUsers),'utf-8')
+        res.render('profile', {
+            title: 'Perfil de Usuario'
             
         })
     },
