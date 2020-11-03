@@ -37,10 +37,10 @@
                       <div class="form-row">
                         <div class="col-12 col-md-4 mt-3 d-flex flex-column align-items-center">
                           <% if (usuarios.rol == "store") { %>
-                          <img src="/images/users/<%= locals.user.avatar %> " class="avatarImg" alt="avatar" width="75%"
+                          <img class="avatar" src="/images/users/<%= locals.user.avatar %> " class="avatarImg" alt="avatar" width="75%"
                             style="object-fit: cover; object-position: top;">
                           <% } else { %>
-                          <img src="/images/users/<%= locals.user.avatar %> " class="avatarImg" alt="avatar" width="75%"
+                          <img class="avatar" src="/images/users/<%= locals.user.avatar %> " class="avatarImg" alt="avatar" width="75%"
                             style="object-fit: cover; object-position: top;">
                           <% } %>
                           <div class="form-group w-75">
@@ -52,7 +52,7 @@
                             <div class="form-group col-12 col-md-6 ">
                               <label for="inputNombre">Nombre</label>
                               <input type="text" name="nombre" class="form-control" id="inputNombre"
-                                value="<%= locals.user.nombre %>" >
+                                value= "<%= locals.user.nombre %>" >
                             </div>
                             <div class="form-group col-12 col-md-6">
                               <label for="inputApellido">Apellido</label>
@@ -62,7 +62,7 @@
                             <div class="form-group col-12 col-md-6">
                               <label for="imputEmail">Email</label>
                               <input type="email" name="email" class="form-control" id="imputEmail"
-                                value=<%= locals.user.email %>>
+                                value= "<%= locals.user.email %>">
                             </div>
                             <div class="form-group col-12 col-md-6">
                               <label for="imputEmail">Fecha de nacimiento</label>
