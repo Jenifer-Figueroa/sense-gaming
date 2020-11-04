@@ -12,9 +12,11 @@ router.get('/login', userController.login);
 router.post('/login', loginValidator, userController.processLogin);
 
 router.get('/profile', userController.profile);
-router.put('/profile', userController.profileEdit)
+router.put('/profileEdit/:id', upImagesUsers.any(), userController.profileEdit)
 
 router.get('/logout', userController.logout);
+
+router.delete('/delete/:id', userController.delete);
 
 
 module.exports = router;

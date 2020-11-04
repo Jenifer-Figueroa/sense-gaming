@@ -65,7 +65,7 @@ module.exports ={
             .then(user =>{
                 req.session.user = {
                     id: user.id,
-                    nick: user.nombre + " " + user.apellido,
+                    nick: "Hola "+ user.nombre + "!",
                     email: user.email,
                     avatar:user.avatar,
                     rol: user.rol
@@ -89,25 +89,55 @@ module.exports ={
         }
     },
     profile:function(req,res){
-        res.render('profile',{
-            title:"Perfil de usuario",
-            usuarios: dbUsers
-            
+        db.Users.findByPk(req.session.user.id)
+        .then(user=>{
+            res.render('profile',{
+                title:"Perfil de usuario",
+                usuario: user  
+            })
         })
+        .catch(error =>{
+            res.send(error)
+        })
+        
     },
     profileEdit: function (req, res) {
 
-        let newUser = {
-            id: lastID + 1,
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-        }
-        dbUsers.push(newUser);
-        fs.writeFileSync(path.join(__dirname,'..','data','dbUsers.json'),JSON.stringify(dbUsers),'utf-8')
-        res.render('profile', {
-            title: 'Perfil de Usuario'
+        db.Users.update({
+                avatar: (req.files[0])?req.files[0].filename:"default.png",
+                direccion:req.body.direccion,
+                localidad:req.body.localidad,
+                provincia:req.body.provincia
+            },
+            {
+                where:{
+                    id: req.params.id
+                }
+        })
+        .then(usuario=>{
+            console.log(usuario)
+            return  res.redirect('/users/profile')
+        })
+    },
+    delete: function(req,res){
+       
+        db.Users.destroy({
+            where : {
+                id : req.params.id
+            }
+        })
+        .then( result => {
+            console.log(result)
             
+            req.session.destroy();
+            if(req.cookies.userSenseGaming){ 
+                res.cookie('userSenseGaming','',{maxAge:-1});
+            }
+            return res.redirect('/')
+            
+        })
+        .catch( error => {
+            res.send(error)
         })
     },
     logout:function(req,res){
