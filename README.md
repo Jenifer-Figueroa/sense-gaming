@@ -1,5 +1,5 @@
 # Grupo2-SenseGaming
-! [logo] (https://github.com/rusinnazarena/Grupo_2_SenseGaming/blob/master/site/public/images/SENSE%20GAMING%20PNG.png)
+![LOGO](https://github.com/rusinnazarena/Grupo_2_SenseGaming/blob/master/site/public/images/SENSE%20GAMING%20PNG.png)
 
 ## Primer Sprint
 
