@@ -1,112 +1,166 @@
 const fs = require('fs')
 const path = require("path")
-const dbProducts=require(path.join(__dirname, "..", "data", "dbProducts"))
+
+const {validationResult} = require('express-validator');
+const db = require('../database/models');
+
+const { Sequelize } = require('../database/models');
+const Op = Sequelize.Op;
+
+
 
 module.exports= {
     listar:function(req,res){
-        res.render("products",{
-            title:"NUESTOS PRODUCTOS",
-            productos:dbProducts
-        })
-    },
-    detalle:function(req,res){
-        idProducto = req.params.id;
-        let producto=dbProducts.filter(producto=>{
-            return producto.id==idProducto
+        db.Products.findAll()
+        .then(productos =>{
+            res.render("products",{
+                title:"NUESTOS PRODUCTOS",
+                productos:productos
+            })
         })
         
-        res.render("productDetail",{
-            title:"DETALLE DEL PRODUCTO",
-            producto:producto[0]
+    },
+    detalle:function(req,res){
+        db.Products.findOne({
+            where: {
+                id :  req.params.id
+            }
         })
+        .then(producto=>{
+            res.render("productDetail",{
+                title:"DETALLE DEL PRODUCTO",
+                producto:producto
+            })
+        })
+          
     },
     search:function(req,res){
         let busqueda = req.query.search;
-        if(busqueda == ""){
-            res.redirect('/')
-        }else{
-
-            let productos = [];
-            dbProducts.forEach(producto=>{
-                if(producto.name.toLowerCase().includes(busqueda.toLowerCase())){
-                    productos.push(producto)
-                }
-            })
+        db.Products.findAll({
+            where: {
+                
+                nombre: {[Op.like]: `%${busqueda}%`}
+            }
+        })
+        .then(productos => {
             res.render('products',{
                 title: "Resultado de la busqueda",
                 productos:productos
             })
-        }
-     
+        })
+        .catch(error =>{
+            res.send(error)
+        })
     },
     agregar: function(req, res){
-        res.render('productAdd',{
-            title: 'PUBLICAR PRODUCTO'
+        db.Categories.findAll({
+            order: [
+                ['nombre' , 'ASC']
+            ]
+        })
+        .then(categorias =>{
+            res.render('productAdd',{
+                title: 'PUBLICAR PRODUCTO',
+                categorias : categorias
+            })
         })
     },
     publicar: function(req, res,next){
-        let lastId =1;
-        dbProducts.forEach(producto=>{
-            if(producto.id > lastId){
-                lastId = producto.id
-            }
+        let errores = validationResult(req);
+        if(errores.isEmpty()){
+
+        db.Products.create({
+            nombre: req.body.nombre,
+            precio: Number(req.body.precio),
+            descripcion: req.body.descripcion,
+            imagen: req.files[0].filename,
+            id_categoria :Number(req.body.categoria)
         })
-        let newProduct ={
-            id: lastId +1,
-            name: req.body.name,
-            price: Number(req.body.price),
-            description: req.body.description,
-            image: req.files[0].filename
-        }
-        dbProducts.push(newProduct);
-        fs.writeFileSync(path.join(__dirname, "..", "data","productos.json"),JSON.stringify(dbProducts),'utf-8')
-        res.redirect('/products')
+        .then(product=>{
+            console.log(product)
+            return res.redirect('/products')
+        })
+     
+    
+    }else{
+        db.Categories.findAll({
+            order:[
+                'nombre'
+            ]
+        })
+        .then(categorias => {
+            let oldCategoria;
+            if(req.body.categoria){
+                categorias.forEach(categoria => {
+                    if(categoria.id == req.body.categoria){
+                        oldCategoria = categoria.nombre
+                    }
+                });
+            }
+            res.render('productAdd', {
+                title: "Agregar Producto",
+                categorias: categorias,
+                errors: errores.mapped(),
+                old:req.body,
+                oldCategoria:oldCategoria
+            }) 
+        })
+    }
     },
     vista:function(req, res){
-        res.render('productVistaEdit',{
-            title: "Mis productos",
-            productos:dbProducts
+        db.Products.findAll()
+        .then(productos =>{
+            res.render('productVistaEdit',{
+                title: "Mis productos",
+                productos : productos
+            })
         })
+        
     },
     show:function(req, res){
-        let idProducto = req.params.id;
-        
-        let resultado = dbProducts.filter(producto=>{
-            return producto.id == idProducto
+        let productos = db.Products.findOne();
+        let categorias= db.Categories.findAll();
+        Promise.all([productos,categorias])
+        .then(([productos,categorias])=>{
+            res.render('productShow',{
+                title:"EDITAR PRODUCTO",
+                producto:productos,
+                categorias:categorias
+            })
         })
-        res.render('productShow',{
-            title: "EDITAR PRODUCTO",
-            producto: resultado[0],
-            
+        .catch(error =>{
+            res.send(error)
         })
     },
-    editar:function(req, res, next){
-        let idProducto=req.params.id;
-
-        dbProducts.forEach(producto=>{
-            if(producto.id == idProducto){
-                
-                producto.price = req.body.price,
-                producto.name = req.body.name,
-                producto.category = req.body.category,
-                producto.description = req.body.description,
-                producto.image= producto.image
-            }
+    editar:function(req, res, next){ // falta arreglar, muestra los datos de un producto
+        db.Products.update({
+            nombre: req.body.nombre,
+            precio: Number(req.body.precio),
+            descripcion: req.body.descripcion,
+            imagen: req.files.filename,
+            id_categoria :Number(req.body.categoria)
+            },
+            {
+                where:{
+                    id: req.params.id
+                }
         })
-        fs.writeFileSync(path.join(__dirname,'..','data','productos.json'),JSON.stringify(dbProducts))
-        res.redirect('/products/detalle/'+ req.params.id)
+        .then(producto=>{
+            console.log(producto)
+            return  res.redirect('/product/detalle/'+ req.params.id)
+        })
     },
     eliminar:function(req, res){
-        let indiceDelProducto;
-        dbProducts.forEach(producto=>{
-            if(producto.id == req.params.id){
-                indiceDelProducto = dbProducts.indexOf(producto)
+        db.Products.destroy({
+            where: {
+                id: req.params.id
             }
         })
-        dbProducts.splice(indiceDelProducto, 1)
-
-        let productosJson = JSON.stringify(dbProducts)
-        fs.writeFileSync(path.join(__dirname,'..','data','productos.json'),productosJson)
-        res.redirect('/products/edit')
+            .then(() => {
+                res.redirect('/products/edit')
+            })
+            .catch(errores => {
+                res.send(errores)
+            })
     }
 }

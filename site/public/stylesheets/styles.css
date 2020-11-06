@@ -259,5 +259,11 @@ body, .centrado{
   margin-bottom: 20px;
 }
 .avatar{
-  border-radius: 20px;
+  border-radius: 95px;
+}
+.nav-link{
+  text-align: center;
+}
+.boton{
+  margin-left: 30px;
 }

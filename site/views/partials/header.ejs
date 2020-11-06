@@ -1,4 +1,7 @@
 <!--header-->
+
+    
+
 <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/">
         <img src="/images/SENSE GAMING PNG.png" alt="">
@@ -30,28 +33,41 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/users/register">REGISTRO</a>
                 </li>
-                <% } else{ %>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/users/logout">CERRAR SESION</a>
+                    <a class="nav-link" href="/carrito">MIS COMPRAS</a>
                 </li>
-                <li class="nav-item active">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            PRODUCTOS
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/products/add">AGREGAR PRODUCTO</a>
-                            <a class="dropdown-item" href="/products/edit">MIS PRODUCTOS</a>
+                <% }else if(locals.user.rol == "admin"){ %>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/users/logout">CERRAR SESION</a>
+                    </li>
+                    <li class="nav-item active">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                PRODUCTOS
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/products/add">AGREGAR PRODUCTO</a>
+                                <a class="dropdown-item" href="/products/edit">MIS PRODUCTOS</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <% } %>
+                    </li>
+                    <!--USUARIO-->
+                    <% }else { %>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/users/logout">CERRAR SESION</a>
+                        </li>
+                        <li class="nav-item active">
+                            
+                            <a class="nav-link" href="/products">PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/carrito">MIS COMPRAS</a>
+                        </li>
+                    <% } %>
             </ul>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="/carrito">CARRO</a>
-            </li>
+            
             
         </ul>
 
@@ -63,13 +79,15 @@
 </nav>
 
 <nav class="nav row text-center">
-    <a href="/products" class="btn btn-outline-danger col-12 col-lg">PC ARMADAS</a>
-    <a href="../products" class="btn btn-outline-danger col-12 col-lg">HARDWARE</a>
-    <a href="../products" class="btn btn-outline-danger col-12 col-lg">SOFTWARE</a>
-    <a href="../products" class="btn btn-outline-danger col-12 col-lg">NOTEBOOKS</a>
-    <a href="../products" class="btn btn-outline-danger col-12 col-lg">PERIFERICOS</a>
 
-    <div class="dropdown">
+    <a href="/products" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">PC ARMADAS</a>
+    <a href="../products" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">HARDWARE</a>
+    <a href="../products" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">SOFTWARE</a>
+    <a href="../products" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">NOTEBOOKS</a>
+    <a href="../products" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">PERIFERICOS</a>
+
+
+    <div class="dropdown col-12 col-md-12 col-lg-2">
         <div class="btn-group">
             <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -83,4 +101,7 @@
         </div>
     </div>
 </nav>
+
+
+
 <!--/header-->

@@ -102,7 +102,7 @@ module.exports ={
         
     },
     profileEdit: function (req, res) {
-
+        
         db.Users.update({
                 avatar: (req.files[0])?req.files[0].filename:"default.png",
                 direccion:req.body.direccion,

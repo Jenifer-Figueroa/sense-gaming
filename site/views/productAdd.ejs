@@ -9,49 +9,69 @@
         <div class= 'col-12 col-md-10 col-lg-8 formulario'>
            <h2 class="agregar"><%= title %> </h2>
 
-          <form action="/products/add" method="POST" enctype="multipart/form-data">
-            <div class="form-group mr-4">
-              <label for="formGroupExampleInput">NOMBRE DEL PRODUCTO</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" name="name">
-            </div>
-        
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">DESCRIPCION DEL PRODUCTO</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description"></textarea>
+           <form action="" method="POST" enctype="multipart/form-data" id="productAdd">
+
+            <div class="form-row">
+
+              <div class="form-group col-12 col-xl-6">
+                <label for="Nombre del producto"></label>
+                <input type="text"
+                class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": ""  %>"
+                id="nombre"  name="nombre"  value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>" placeholder="nombre del producto"/>
+                <small id="errorNombre" class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
+              </div>
+
+              <div class="form-group col-12 col-xl-6">
+                <label for="Titulo"></label>
+                <select name="categoria" id="categoria" class="form-control <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
+                  <option value="">Eligí la categoría</option>
+                  <% if (typeof oldCategoria != 'undefined') { %>
+                      <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
+                  <% } %>
+                  <% categorias.forEach(categoria => { %>
+                      <option value="<%= categoria.id %>"><%= categoria.nombre %> </option>
+                  <% }) %>>
+                </select>
+                <small id="errorCategoria" class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
+              </div>
+
             </div>
 
-            <div class="form-group mr-4">
-              <label for="formGroupExampleInput">PRECIO</label>
-              <input type="number" class="form-control" id="formGroupExampleInput" name="price">
-            </div>
         
-            <div class="form-group ml-4">
-              <label for="exampleFormControlFile1">IMAGEN DEL PRODUCTO</label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
-            </div>
-            
-            <div>
-              <label for="tipo" id="tipo">CATEGORIA:</label>
-              <select name="category" id="categ">
-                <option value="vacio"></option>
-                <option value="placa">PLACA DE VIDEO</option>
-                <option value="pcarmadas">PC ARMADAS</option>
-                <option value="hardware">HARDWARE</option>
-                <option value="software">SOFTWARE</option>
-                <option value="notebooks">NOTEBOOKS</option>
-                <option value="perifericos">PERIFERICOS</option>
-                <option value="impresoras">IMPRESORAS</option>
-                <option value="accesorios">ACCESORIOS</option>
-                <option value="combosactualizados">COMBOS ACTUALIZADOS</option>
-              </select>
-            </div>
-      
-            
-           <div class="mt-5 mr-5 d-flex justify-content-end">
-              <button type="submit" class="btn btn-outline-primary">Publicar</button>
-            </div>
+            <div class="form-row">
+              <div class="form-group col-12 col-xl-6">
+                <label for="precio"></label>
+                <input type="number"
+                class="form-control <%= (typeof old != 'undefined' && old.precio && !errors.precio)?"is-valid":(typeof errors != 'undefined' && errors.precio)?"is-invalid": ""  %>"
+                id="precio" value="<%= (typeof old != 'undefined' && old.precio)?old.precio:'' %>" placeholder="precio" name="precio" min=1 />
+                <small id="errorPrecio" class="text-danger"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %> </small>
+              </div>
 
-          </form> 
+              <div class="form-group col-12">
+                <label for="descripcion"></label>
+                <textarea name="descripcion" id="descripcion" cols="10" rows="5" class="form-control <%= (typeof old != 'undefined' && old.descripcion && !errors.descripcion)?"is-valid":(typeof errors != 'undefined' && errors.descripcion)?"is-invalid": ""  %>"><%= (typeof old != 'undefined' && old.descripcion)?old.descripcion:'' %></textarea>        
+                <small id="errorDescripcion" class="text-danger"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %> </small>
+              </div>
+            </div>
+         
+            <div class="form-row">
+                <div class="form-group col-12 col-xl-6">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input " id="imagen" lang="en" name="imagen">
+                      <label class="custom-file-label" for="customFileLang">Imagenes</label>
+                      <small id="errorImagen" class="text-danger"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %> </small>
+                    </div>
+                  </div>
+
+                  <div class="mt-5 mr-5 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-outline-primary">Publicar</button>
+                  </div>
+
+            </div>
+    
+            
+            </div>
+          </form>
 
       </div>    
     </div>
