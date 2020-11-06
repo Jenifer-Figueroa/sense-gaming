@@ -118,7 +118,7 @@ module.exports= {
         
     },
     show:function(req, res){
-        let productos = db.Products.findOne();
+        let productos =db.Products.findByPk(req.params.id) ;
         let categorias= db.Categories.findAll();
         Promise.all([productos,categorias])
         .then(([productos,categorias])=>{
@@ -132,12 +132,12 @@ module.exports= {
             res.send(error)
         })
     },
-    editar:function(req, res, next){ // falta arreglar, muestra los datos de un producto
+    editar:function(req, res, next){ 
         db.Products.update({
             nombre: req.body.nombre,
             precio: Number(req.body.precio),
             descripcion: req.body.descripcion,
-            imagen: req.files.filename,
+            imagen: (req.files[0])?req.files[0].filename: req.body.imagen,
             id_categoria :Number(req.body.categoria)
             },
             {
@@ -147,7 +147,10 @@ module.exports= {
         })
         .then(producto=>{
             console.log(producto)
-            return  res.redirect('/product/detalle/'+ req.params.id)
+            return  res.redirect('/products/detalle/' + req.params.id)
+        })
+        .catch(error =>{
+            res.send(error)
         })
     },
     eliminar:function(req, res){

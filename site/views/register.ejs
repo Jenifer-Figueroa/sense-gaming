@@ -17,7 +17,7 @@
                       class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": ""  %>"
                       id="nombre" name="nombre"
                       value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>"
-                      placeholder="nombre" />
+                      placeholder="Nombre" />
                     <small
                       class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %>
                     </small>
@@ -29,7 +29,7 @@
 												class="form-control <%= (typeof old != 'undefined' && old.apellido)?"is-valid":(typeof errors != 'undefined' && errors.apellido)?"is-invalid": ""  %>"
 												id="apellido"
 												value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:'' %>"
-												placeholder="apellido" name="apellido" />
+												placeholder="Apellido" name="apellido" />
 											<small
 												class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %>
 											</small>
@@ -41,7 +41,7 @@
 												class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>"
 												id="email"
 												value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>"
-												placeholder="email" name="email" />
+												placeholder="Email" name="email" />
 											<small
 												class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %>
 											</small>
@@ -52,7 +52,7 @@
 											<label for="pass">Contraseña</label>
 											<input type="password"
 												class="form-control <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid": ""  %>"
-												id="pass" placeholder="contraseña" name="pass" />
+												id="pass" placeholder="Contraseña" name="pass" />
 											<small
 												class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %>
 											</small>
@@ -63,7 +63,7 @@
                     <label for="pass2">Confirmar Contraseña</label>
 											<input type="password"
 												class="form-control <%= (typeof errors != 'undefined' && errors.pass2)?"is-invalid": ""  %>"
-												id="pass2" placeholder="reingresar contraseña" name="pass2" />
+												id="pass2" placeholder="ingresar contraseña" name="pass2" />
 											<small
 												class="text-danger"><%= (typeof errors != 'undefined' && errors.pass2)?errors.pass2.msg: "" %>
 											</small>

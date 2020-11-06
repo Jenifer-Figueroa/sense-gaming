@@ -1,9 +1,5 @@
-const path = require('path');
-const fs = require('fs');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
-
-const dbUsers = require(path.join(__dirname,'..','data','dbUsers'));
 
 const db = require('../database/models')
 
@@ -31,7 +27,7 @@ module.exports ={
             })
             .then(usuario =>{
                 console.log(usuario)
-                return res.redirect('/')
+                return res.redirect('/users/login')
             })
             .catch(error =>{
                 res.send(error)
