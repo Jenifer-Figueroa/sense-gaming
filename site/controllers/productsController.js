@@ -118,8 +118,12 @@ module.exports= {
         
     },
     show:function(req, res){
-        let productos =db.Products.findByPk(req.params.id) ;
+        let productos =db.Products.findByPk(req.params.id,{
+            include:[{association:"categoria"}]
+
+        }) ;
         let categorias= db.Categories.findAll();
+
         Promise.all([productos,categorias])
         .then(([productos,categorias])=>{
             res.render('productShow',{
@@ -137,7 +141,7 @@ module.exports= {
             nombre: req.body.nombre,
             precio: Number(req.body.precio),
             descripcion: req.body.descripcion,
-            imagen: (req.files[0])?req.files[0].filename: req.body.imagen,
+            imagen: (req.files[0])?req.files[0].filename: req.body.imagen, // (req.files[0]) ? req.files[0].filename : producto.image,es un if ternario
             id_categoria :Number(req.body.categoria)
             },
             {

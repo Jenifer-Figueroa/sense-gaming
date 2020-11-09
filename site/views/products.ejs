@@ -10,16 +10,20 @@
                 <br><h2><%= title %></h2><br>
               </div>
     
-            <div class="row">   
+            <div class="row cajas">   
                 <% productos.forEach(producto => { %>
      
-                                <div class="col-12 col-md-6 col-lg-4 card ">
-                                    <img class="card-img-top" src="/images/products/<%= producto.imagen %>" alt="Card image cap">
+                                <div class="col-12 col-md-6 col-lg-4 card">
+                                  <div>
+                                  <div>
+                                    <img class="card-img-top medida" src="/images/products/<%= producto.imagen %>" alt="Card image cap">
                                     <div class="card-body">
                                       <h5 class="card-title"><%= producto.nombre %></h5>
         
                                       <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger">VER</a>
                                     </div>
+                                  </div>
+                                  </div>
                                 </div>
 
         

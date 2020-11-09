@@ -11,7 +11,7 @@
                     <div class="col-12 col-md-12 col-lg-6 imagen ">
                         <h2 class="edit"><%= title %> </h2>
                         <figure>
-                        <img src="/images/products/<%= producto.imagen %>" class= "mr-3 detalle pt-4" alt="..." >
+                        <img src="/images/products/<%= producto.imagen %>" class= "mr-3 detalle pt-4" alt="img" >
                         </figure>
                         <input type="file" class="form-control" name="imagen">
                     </div>
@@ -28,9 +28,12 @@
 
                         <div class="form-group col-12 col-xl-6">
                          <label for="Titulo"></label>
+                         
                         <select name="categoria" id="categoria" class="form-control <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
-                        <option value="">Eligí la categoría</option>
+
+                        <option value=" <%= producto.categoria.id %> "> <%= producto.categoria.nombre %></option>
                         <% if (typeof oldCategoria != 'undefined') { %>
+
                       <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
                         <% } %>
                         <% categorias.forEach(categoria => { %>

@@ -25,21 +25,22 @@
     <section id="destacados" class="mt-4">
         <div class="container">
             <div>
-                <div class="col text-center">
-                    <small>LOS MAS</small>
-                    <h2>DESTACADOS</h2>
+                <div class="col-12 titulo">
+                    <h2>LO MAS</h2>
+                    <h2>DESTACADO</h2>
                 </div>
             </div>
             
             <div class="row ">
-                <% destacado.forEach(producto => { %>            
-            
-                <div class="col-4 justify-content-center justify-content-md-start">
-                    <div class=" ">
-                        <div class="card ">
-                            <img class="card-img-top" src="/images/products/<%= producto.image %>" alt="Card image cap">
+                <% productos.forEach(producto => { %> 
+                                
+                
+                <div class=" col-12 col-md-6 col-lg-4 card justify-content-center justify-content-md-start">
+                    <div class="caja ">
+                        <div>
+                            <img class="card-img-top medida" src="/images/products/<%= producto.imagen %>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"><%= producto.name %></h5>
+                            <h5 class="card-title"><%= producto.nombre %></h5>
 
                             <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger">VER</a>
                         </div>

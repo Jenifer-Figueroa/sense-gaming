@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const indexC = require("../controllers/indexController")
-const localsUsersCheck = require('../middlewares/localsUserCheck')
+const cookies = require('../middlewares/cookieCheck')
 
 /* GET home page. */
-router.get('/',localsUsersCheck,indexC.index)
+router.get('/',cookies,indexC.index)
 
 module.exports = router;

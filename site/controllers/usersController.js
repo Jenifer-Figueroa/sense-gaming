@@ -65,7 +65,7 @@ module.exports ={
                     email: user.email,
                     avatar:user.avatar,
                     rol: user.rol
-                }
+                } 
                 if(req.body.recordar){
                     res.cookie('userSenseGaming',req.session.user,{maxAge:1000*60*60})
                 }
@@ -100,7 +100,7 @@ module.exports ={
     profileEdit: function (req, res) {
         
         db.Users.update({
-                avatar: (req.files[0])?req.files[0].filename:"default.png",
+                avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar,
                 direccion:req.body.direccion,
                 localidad:req.body.localidad,
                 provincia:req.body.provincia
@@ -110,8 +110,8 @@ module.exports ={
                     id: req.params.id
                 }
         })
-        .then(usuario=>{
-            console.log(usuario)
+        .then(user=>{
+            console.log(user)
             return  res.redirect('/users/profile')
         })
     },
