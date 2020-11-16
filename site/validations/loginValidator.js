@@ -15,6 +15,25 @@ module.exports = [
     })
     .withMessage("Escribe tu contraseña"),
 
+    body('email')
+    .custom(function(value, {req}){
+        return db.Users.findOne({
+           where:{
+               email:req.body.email
+           }
+        })
+        .then(user=>{
+            if(value != user.email){
+                return Promise.reject('Este email no esta registrado')
+            }
+        })
+        .catch(error =>{
+            return Promise.reject('Este email no esta registrado')
+        })
+    }),
+
+
+
 
     body('pass')
     .custom(function(value,{req}){
@@ -25,11 +44,11 @@ module.exports = [
         })
         .then(user =>{
             if(!bcrypt.compareSync(value,user.password)){
-                return Promise.reject('Credenciales invalidas')
+                return Promise.reject('Contraseña invalida')
             }
         })
         .catch(error =>{
-            return Promise.reject('Credenciales invalidas')
+            return Promise.reject('Contraseña invalida')
         })
     })
 ]
