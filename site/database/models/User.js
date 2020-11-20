@@ -56,5 +56,15 @@ module.exports= (sequelize,dataTypes)=>{
 
 
     const User = sequelize.define(alias, cols, config)
+
+    User.associate = function(models){
+        User.belongsToMany(models.Users,{
+            as : "productos",
+            through : 'cart', //tabla intermedia 
+            foreignKey : 'id_user', //la clave foranea de este modelo en esa tabla intermedia
+            otherKey : 'id_producto'
+        })
+    }
+
     return User;
 }

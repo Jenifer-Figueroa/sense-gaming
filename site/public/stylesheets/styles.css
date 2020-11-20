@@ -285,4 +285,6 @@ body, .centrado{
 .cajas{
   margin-left: 5px;
 }
-
+#vistaPrevia{
+  border-radius: 165px;
+}

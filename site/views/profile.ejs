@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('partials/head') %>
+<script src="/javascripts/profileValidator.js"></script>
 
 
 <body>
@@ -32,7 +33,7 @@
 
                 
                
-                    <form action="/users/profileEdit/<%= usuario.id %> ?_method=PUT" method="POST"
+                    <form class="form" action="/users/profileEdit/<%= usuario.id %> ?_method=PUT" method="POST"
                       enctype="multipart/form-data">
 
                       <div class="form-row">
@@ -67,22 +68,30 @@
                               <label for="inputAddress2">Dirección</label>
                               <input type="text" name="direccion" class="form-control" id="inputAddress2"
                                 value="<%= usuario.direccion %>">
+                                <span id="errorDireccion" class="text-danger"></span>
                             </div>
+
                             <div class="form-group col-12 col-md-6">
                               <label for="imputLocalidad">Localidad</label>
-                              <input type="text" name="localidad" class="form-control" id="inputCiudad"
+                              <input type="text" name="localidad" class="form-control localidad" id="inputCiudad"
                                 value="<%= usuario.localidad %>">
                               <select class="form-control" id="ciudadSelect" style="display: none;"></select>
-
+                              <span id="errorLocalidad" class="text-danger"></span>
                             </div>
+
                             <div class="form-group col-12 col-md-6">
                               <label for="inputProvincia">Provincia</label>
                               <input type="text" name="provincia" class="form-control" id="inputProvincia"
                                 value="<%= usuario.provincia %>">
                               <select class="form-control" id="provinciaSelect" style="display: none;">
                               </select>
+                              <span id="errorProvincia" class="text-danger"></span>
                             </div>
                           </div>
+
+                          
+
+
                           <div class="d-md-flex justify-content-end mt-5">
                             <button type="button" class="btn-sm btn-secondary m-1"><a href="/" class="text-light">Salir
                                 sin

@@ -44,6 +44,12 @@ module.exports= (sequelize,dataTypes)=>{
         Product.belongsTo(models.Categories,{
             as : "categoria",
             foreignKey : "id_categoria"
+        }),
+        Product.belongsToMany(models.Users,{
+            as : "usuarios",
+            through : 'cart', //tabla intermedia 
+            foreignKey : 'id_producto', //la clave foranea de este modelo en esa tabla intermedia
+            otherKey : 'id_user'
         })
     }
     return Product;
