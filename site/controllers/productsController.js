@@ -66,19 +66,22 @@ module.exports= {
         })
     },
     publicar: function(req, res,next){
-        let errores = validationResult(req);
-        if(errores.isEmpty()){
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
 
         db.Products.create({
             nombre: req.body.nombre,
             precio: Number(req.body.precio),
             descripcion: req.body.descripcion,
-            imagen: req.files[0].filename,
+            imagen: (req.files[0])?req.files[0].filename: "default-image.png",
             id_categoria :Number(req.body.categoria)
         })
         .then(product=>{
             console.log(product)
             return res.redirect('/products')
+        }).
+        catch(errors=>{
+            res.send(errors)
         })
      
     
@@ -100,7 +103,7 @@ module.exports= {
             res.render('productAdd', {
                 title: "Agregar Producto",
                 categorias: categorias,
-                errors: errores.mapped(),
+                errors: errors.mapped(),
                 old:req.body,
                 oldCategoria:oldCategoria
             }) 

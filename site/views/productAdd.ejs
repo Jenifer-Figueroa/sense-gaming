@@ -18,20 +18,23 @@
               <div class="form-group col-12 col-xl-6">
                 <label for="Nombre del producto"></label>
                 <input type="text"
-                class="form-control"
+                class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": ""  %>"
                 id="nombre"  name="nombre" placeholder="nombre del producto"/>
-                <span id="errorNombre" class="text-danger"></span>
+                <span id="errorNombre" class="text-danger" <%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %>></span>
               </div>
 
               <div class="form-group col-12 col-xl-6">
                 <label for="Titulo"></label>
-                <select name="categoria" id="categoria" class="form-control">
+                <select name="categoria" id="categoria" class="form-control <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
                   <option value="">Eligí la categoría</option>
+                  <% if (typeof oldCategoria != 'undefined') { %>
+                    <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
+                <% } %>
                   <% categorias.forEach(categoria => { %>
                       <option id="categoria" value="<%= categoria.id %>"><%= categoria.nombre %> </option>
                   <% }) %>>
                 </select>
-                <span id="errorCategoria" class="text-danger"></span>
+                <span id="errorCategoria" class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %></span>
               </div>
 
             </div>
@@ -41,15 +44,15 @@
               <div class="form-group col-12 col-xl-6">
                 <label for="precio"></label>
                 <input type="number"
-                class="form-control"
-                id="precio"  placeholder="precio" name="precio" min=1 />
-                <span id="errorPrecio" class="text-danger"></span>
+                class="form-control <%= (typeof old != 'undefined' && old.precio && !errors.precio)?"is-valid":(typeof errors != 'undefined' && errors.precio)?"is-invalid": ""  %>"
+                id="precio" value="<%= (typeof old != 'undefined' && old.precio)?old.precio:'' %>" placeholder="precio" name="precio" min=1 />
+                <span id="errorPrecio" class="text-danger"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %></span>
               </div>
 
               <div class="form-group col-12">
                 <label for="descripcion"><h3> Descripción del producto </h3></label>
-                <textarea  name="descripcion" id="descripcion" cols="10" rows="5" class="form-control">  </textarea>        
-                <span id="errorDescripcion" class="text-danger"></span>
+                <textarea name="descripcion" id="descripcion" cols="10" rows="5" class="form-control <%= (typeof old != 'undefined' && old.descripcion && !errors.descripcion)?"is-valid":(typeof errors != 'undefined' && errors.descripcion)?"is-invalid": ""  %>"><%= (typeof old != 'undefined' && old.descripcion)?old.descripcion:'' %></textarea>        
+                <span id="errorDescripcion" class="text-danger"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %></span>
               </div>
             </div>
          
@@ -58,7 +61,7 @@
                     <div class="custom-file">
                       <input type="file" class="custom-file-input " id="imagen" lang="en" name="imagen">
                       <label class="custom-file-label" for="customFileLang">Imagenes</label>
-                      <span id="errorImagen" class="text-danger"></span>
+                      <span id="errorImagen" class="text-danger"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %></span>
                     </div>
                   </div>
 
