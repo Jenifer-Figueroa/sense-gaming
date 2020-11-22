@@ -98,22 +98,21 @@ module.exports ={
         
     },
     profileEdit: function (req, res) {
-        
         db.Users.update({
-                avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar,
-                direccion:req.body.direccion,
-                localidad:req.body.localidad,
-                provincia:req.body.provincia
-            },
-            {
-                where:{
-                    id: req.params.id
-                }
-        })
-        .then(user=>{
-            console.log(user)
-            return  res.redirect('/users/profile')
-        })
+            avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar,
+            direccion:req.body.direccion,
+            localidad:req.body.localidad,
+            provincia:req.body.provincia
+        },
+        {
+            where:{
+                id: req.params.id
+            }
+    })
+    .then(user=>{
+        console.log(user)
+        return  res.redirect('/users/profile')
+    })
     },
     delete: function(req,res){
        

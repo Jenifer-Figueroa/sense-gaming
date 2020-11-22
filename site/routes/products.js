@@ -12,8 +12,8 @@ router.get("/",productController.listar)
 router.get("/detalle/:id", productController.detalle)
 router.get("/search",productController.search)
 
-router.get("/add", mwAdmin, productValidator, productController.agregar)
-router.post("/add",upImagesProducts.any(), productController.publicar)
+router.get("/add", mwAdmin, productController.agregar)
+router.post("/add",productValidator,upImagesProducts.any(), productController.publicar)
 
 router.get("/edit", mwAdmin, productController.vista)
 router.get('/show/:id', mwAdmin, productController.show)

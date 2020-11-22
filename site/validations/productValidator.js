@@ -24,30 +24,21 @@ check('precio')
 })
 .withMessage('El precio del producto debe tener mas de 2 cifras'),
 
-check('detalle')
+check('descripcion')
 .isLength({
     min:10
 })
 .withMessage('El detalle del producto tiene que tener mas de 10 caracteres'),
 
 body('imagen')
-    .custom((value,{req})=>{
-        if(!req.files[0]){
-            return true
-        }else{
-            return true
-        }
-    })
-    .withMessage('Debes subir una imagen'),
+.custom((value,{req})=>{
+    if(!req.files[0]){
+        return false
+    }else{
+        return true
+    }
+})
+.withMessage("Tenés que subir una imagen")
 
-body('imagen')
-    .custom((value, {req})=>{
-   
-        value = req.files[0].filename
-        let extension = path.extname(value)
-        
-        return extension == '.jpg' || extension == '.jpeg' || extension == '.png' || extension == '.gif'
-    })
-    .withMessage('Debes subir una imagen con formato jpg, jpeg, png o gif')
 
 ]

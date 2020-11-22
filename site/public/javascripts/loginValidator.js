@@ -34,11 +34,7 @@ window.addEventListener('load', function(){
                 errorPassword.innerHTML = errores.nombre;
                 this.classList.add('is-invalid')
                 break; 
-            case !regExPass.test(this.value):
-                errores.nombre = "La contraseña debe tener entre 6 y 12 caracteres";
-                errorPassword.innerHTML = errores.nombre;
-                this.classList.add('is-invalid')
-                break; 
+            
             default:
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');

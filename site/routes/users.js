@@ -5,6 +5,7 @@ const loginValidator = require('../validations/loginValidator');
 const registerValidator = require('../validations/registerValidator');
 const upImagesUsers = require('../middlewares/upImagesUsers');
 const mwUser = require('../middlewares/mwUser');
+const userUpdateValidator = require('../validations/userUpdateValidator')
 
 
 router.get('/register', userController.register);
