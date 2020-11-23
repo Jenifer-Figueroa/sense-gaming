@@ -1,3 +1,14 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#header{
+  width: 100%;
+  
+}
+
+
 #header img{
     width: 50px;
 }
@@ -106,8 +117,11 @@ body, .centrado{
   
   body {
     background: #212529;
+   
+   
     /*background: linear-gradient(to right, #0062E6, #33AEFF);*/
   }
+  
   
   .card-signin {
     border: 0;
@@ -288,3 +302,4 @@ body, .centrado{
 #vistaPrevia{
   border-radius: 165px;
 }
+
