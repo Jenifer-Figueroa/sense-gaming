@@ -3,6 +3,7 @@ const router = express.Router()
 const productController = require("../controllers/productsController")
 const upImagesProducts = require('../middlewares/upImagesProducts')
 const productValidator= require('../validations/productValidator')
+const productUpdateValidator = require('../validations/productUpdateValidator')
 
 const mwAdmin = require('../middlewares/mwAdmin')
 const mwUser = require('../middlewares/mwUser')
@@ -17,7 +18,7 @@ router.post("/add",productValidator,upImagesProducts.any(), productController.pu
 
 router.get("/edit", mwAdmin, productController.vista)
 router.get('/show/:id', mwAdmin, productController.show)
-router.put('/show/:id', upImagesProducts.any(), productController.editar)
+router.put('/show/:id',productUpdateValidator, upImagesProducts.any(), productController.editar)
 
 router.delete('/delete/:id', mwAdmin, productController.eliminar)
 

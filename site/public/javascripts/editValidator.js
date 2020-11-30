@@ -6,6 +6,7 @@ window.addEventListener('load', function(){
     let inputPrecio = document.querySelector('#precio')
     let inputDescripcion = document.querySelector('#descripcion')
     let inputImagen = document.querySelector('#imagen')
+    let formulario = document.querySelector('#formulario')
     
     let errores = {}
     let regExNum = /^[0-9]{2,8}$/;
@@ -102,7 +103,7 @@ window.addEventListener('load', function(){
                 errorDescripcion.innerHTML= ""
         }
     })
-    inputImagen.addEventListener('blur', function(){
+    inputImagen.addEventListener('change', function(){
         switch(true){
             case !regExExtensions.test(this.value):
                 errores.nombre = "Extension no valida";
@@ -114,6 +115,22 @@ window.addEventListener('load', function(){
                 this.classList.add('is-valid');
                 errorImagen.innerHTML= ""
             
+        }
+    })
+    formulario.addEventListener('submit', function(e){
+        e.preventDefault();
+        let error = false;
+        let elementosForm = this.elements;
+        for(let i = 0 ; i<elementosForm.length-1; i++){
+    
+            if (elementosForm[i].value == ""){
+                elementosForm[i].classList.add('is-invalid');
+                msgError.innerHTML = "Los campos son obligatorios"
+                error = true
+            }
+        }
+        if(!error){
+            formulario.submit()
         }
     })
     

@@ -7,14 +7,14 @@
     <div class="container-fluid">
         <div class="container">
             
-             <form class="row" action="/products/show/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+             <form id="formulario" class="row" action="/products/show/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
                     <div class="col-12 col-md-12 col-lg-6 imagen ">
                         <h2 class="edit"><%= title %> </h2>
                         <figure>
                         <img src="/images/products/<%= producto.imagen %>" class= "mr-3 detalle pt-4" alt="img" >
                         </figure>
-                        <input type="file" class="form-control"  name="imagen" id="imagen">
+                        <input type="file" class="form-control"  name="imagen" id="imagen" >
                         <small id="errorImagen" class="text-danger"> </small>
                     </div>
 
@@ -50,6 +50,13 @@
                         </select>
                         <small id="errorCategoria" class="text-danger"> </small>
                     </div>
+
+                    <div class="form-row d-flex justify-content-between">
+                        <span id="msgError" class="text-danger"></span>
+                      </div>
+
+                </div>
+                
 
 
 

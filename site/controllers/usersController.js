@@ -98,11 +98,15 @@ module.exports ={
         
     },
     profileEdit: function (req, res) {
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+
         db.Users.update({
             avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar,
             direccion:req.body.direccion,
             localidad:req.body.localidad,
-            provincia:req.body.provincia
+            provincia:req.body.provincia,
+            password:bcrypt.hashSync(req.body.pass,10)
         },
         {
             where:{
@@ -113,6 +117,18 @@ module.exports ={
         console.log(user)
         return  res.redirect('/users/profile')
     })
+        }else{
+            db.Users.findByPk(req.session.user.id)
+            .then(user=>{
+                res.render('profile',{
+                    title:"Perfil de usuario",
+                    usuario: user ,
+                    errors:errors.mapped(),
+                old:req.body 
+                })
+            })
+    
+        }
     },
     delete: function(req,res){
        

@@ -1,7 +1,7 @@
 <%-include("./partials/head.ejs") %> 
 <%-include("./partials/header.ejs") %> 
 
-<body>
+
     <!--carrousel-->
     <section id="main">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-pause="false">
@@ -42,7 +42,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><%= producto.nombre %></h5>
 
-                            <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger">VER</a>
+                            <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger " id="ver">VER</a>
                         </div>
                         </div>
                     </div>
