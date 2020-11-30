@@ -1,7 +1,6 @@
 <%-include("./partials/head.ejs") %> 
-<script src="/javascripts/createValidator.js"></script>
-
 <%-include("./partials/header.ejs") %> 
+
 
 <body>
 
@@ -19,7 +18,7 @@
                 <label for="Nombre del producto"></label>
                 <input type="text"
                 class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": ""  %>"
-                id="nombre"  name="nombre" placeholder="nombre del producto"/>
+                id="nombre"  name="nombre" placeholder="Nombre del producto"/>
                 <span id="errorNombre" class="text-danger" ><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %></span>
               </div>
 
@@ -45,7 +44,7 @@
                 <label for="precio"></label>
                 <input type="number"
                 class="form-control <%= (typeof old != 'undefined' && old.precio && !errors.precio)?"is-valid":(typeof errors != 'undefined' && errors.precio)?"is-invalid": ""  %>"
-                id="precio" value="<%= (typeof old != 'undefined' && old.precio)?old.precio:'' %>" placeholder="precio" name="precio" min=1 />
+                id="precio" value="<%= (typeof old != 'undefined' && old.precio)?old.precio:'' %>" placeholder="Precio" name="precio" min=1 />
                 <span id="errorPrecio" class="text-danger"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %></span>
               </div>
 

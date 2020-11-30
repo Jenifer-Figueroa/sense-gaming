@@ -1,17 +1,14 @@
 const {check,validationResult,body} = require('express-validator');
 
-const path = require('path')
 
-let db = require('../database/models')
+module.exports = [
 
-module.exports =[
-
- check('nombre')
+check('nombre')
 .isLength({
     min:4,
     max:100
     })
-.withMessage('El nombre del producto tiene que tener mas de 4 caracteres'),
+ .withMessage('El nombre del producto tiene que tener mas de 4 caracteres'),
 
 check('categoria')
 .isLength({

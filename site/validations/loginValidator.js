@@ -15,7 +15,7 @@ module.exports = [
     })
     .withMessage("Escribe tu contraseña"),
 
-    body('email')
+    /*body('email')
     .custom(function(value, {req}){
         return db.Users.findOne({
            where:{
@@ -30,7 +30,7 @@ module.exports = [
         .catch(error =>{
             return Promise.reject('Credenciales invalidas')
         })
-    }),
+    }),*/
 
 
 
