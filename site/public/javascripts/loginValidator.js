@@ -17,7 +17,7 @@ window.addEventListener('load', function(){
             this.classList.add('is-invalid')
             break;
         case !regExEmail.test(this.value):
-             errores.nombre = "El email no es valido";
+             errores.nombre = "Credenciales invalidas";
              errorEmail.innerHTML = errores.nombre;
              this.classList.add('is-invalid')
              break; 
@@ -30,7 +30,7 @@ window.addEventListener('load', function(){
     inputPassword.addEventListener('blur', function(){
         switch(true){
             case this.value === "" :
-                errores.nombre = "El campo contraseña es obligatorio";
+                errores.nombre = "Credenciales invalidas";
                 errorPassword.innerHTML = errores.nombre;
                 this.classList.add('is-invalid')
                 break; 

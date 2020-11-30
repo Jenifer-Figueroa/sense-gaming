@@ -5,6 +5,9 @@ const bcrypt = require('bcrypt');
 
 module.exports = [
 
+
+    
+
     body('password')
     .custom(function(value,{req}){
         return db.Users.findByPk(req.session.user.id)
@@ -12,6 +15,8 @@ module.exports = [
            
             if(!bcrypt.compareSync(value,user.
                 password)){
+                    console.log(bcrypt.compareSync(value,user.
+                        password))
                 return Promise.reject('Contraseña invalida')
             } else{
                 return true

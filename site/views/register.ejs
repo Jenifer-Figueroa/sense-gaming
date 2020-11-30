@@ -13,7 +13,7 @@
                 <form action="/users/register" id="formulario" class="form-signin" method="POST" enctype="multipart/form-data">
 
                   <div class="form-label-group">
-                    <label for="nombre" >Nombre</label>
+                    <label for="nombre" >Nombre</label><br><br>
                     <input type="text"
                       class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": ""  %>"
                       id="nombre" name="nombre" 
@@ -24,7 +24,7 @@
                   </div>
 
                   <div class="form-label-group">
-                    <label for="apellido">Apellido</label>
+                    <label for="apellido">Apellido</label><br><br>
 											<input type="text"
 												class="form-control <%= (typeof old != 'undefined' && old.apellido)?"is-valid":(typeof errors != 'undefined' && errors.apellido)?"is-invalid": ""  %>"
 												id="apellido"
@@ -36,7 +36,7 @@
                   </div>
 
                   <div class="form-label-group">
-                    <label for="email">Email</label>
+                    <label for="email">Email</label><br><br>
 											<input type="email"
 												class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>"
 												id="email"
@@ -49,7 +49,7 @@
     
                   <div class="form-label-group">
                     
-											<label for="pass">Contraseña</label>
+											<label for="pass">Contraseña</label><br><br>
 											<input type="password"
 												class="form-control <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid": ""  %>"
 												id="pass" placeholder="Contraseña" name="pass" />
@@ -60,7 +60,7 @@
                   </div>
 
                   <div class="form-label-group">
-                    <label for="pass2">Confirmar Contraseña</label>
+                    <label for="pass2">Confirmar Contraseña</label><br><br>
 											<input type="password"
 												class="form-control <%= (typeof errors != 'undefined' && errors.pass2)?"is-invalid": ""  %>"
 												id="pass2" placeholder="ingresar contraseña" name="pass2" />

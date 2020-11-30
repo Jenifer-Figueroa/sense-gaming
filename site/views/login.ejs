@@ -16,13 +16,13 @@
 
                 <form action="/users/login" class="form-signin" method="POST">
                   <div class="form-label-group">
-                    <label for="exampleInputEmail1">Email</label>
+                    <label for="exampleInputEmail1">Email</label><br><br>
                        <input type="email" class="form-control email <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid":'' %>" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="email" name="email">
                         <small id="errorEmail" class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
                   </div>
     
                   <div class="form-label-group">
-                    <label for="exampleInputPassword1">Contraseña</label>
+                    <label for="exampleInputPassword1">Contraseña</label><br><br>
                         <input type="password" class="form-control password <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid":'' %>" id="exampleInputPassword1" placeholder="contraseña" name="pass">
                         <small id="errorPassword" class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %> </small>
                   </div>

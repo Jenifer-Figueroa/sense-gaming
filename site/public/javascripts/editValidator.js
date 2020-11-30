@@ -121,13 +121,15 @@ window.addEventListener('load', function(){
         e.preventDefault();
         let error = false;
         let elementosForm = this.elements;
-        for(let i = 0 ; i<elementosForm.length-1; i++){
+        console.log(this.elements)
+        for(let i = 0 ; i<elementosForm.length-2; i++){
     
-            if (elementosForm[i].value == ""){
+            if (elementosForm[i].value == "" && i != 0 ){
                 elementosForm[i].classList.add('is-invalid');
                 msgError.innerHTML = "Los campos son obligatorios"
                 error = true
             }
+            
         }
         if(!error){
             formulario.submit()
