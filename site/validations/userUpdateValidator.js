@@ -5,9 +5,26 @@ const bcrypt = require('bcrypt');
 
 module.exports = [
 
-
+    check('direccion')
+    .isLength({
+        min:1
+    }),
+    check('localidad')
+    .isLength({
+        min:1
+    }),
+    check('provincia')
+    .isLength({
+        min:1
+    }),
     
 
+
+
+
+
+
+   //no se puede usar todavia la actualizacion de contraseña// 
     body('password')
     .custom(function(value,{req}){
         return db.Users.findByPk(req.session.user.id)

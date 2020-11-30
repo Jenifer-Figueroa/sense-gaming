@@ -24,11 +24,11 @@ module.exports = [
         })
         .then(user=>{
             if(value != user.email){
-                return Promise.reject('Este email no esta registrado')
+                return Promise.reject('Credenciales invalidas')
             }
         })
         .catch(error =>{
-            return Promise.reject('Este email no esta registrado')
+            return Promise.reject('Credenciales invalidas')
         })
     }),
 
@@ -44,11 +44,11 @@ module.exports = [
         })
         .then(user =>{
             if(!bcrypt.compareSync(value,user.password)){
-                return Promise.reject('Contraseña invalida')
+                return Promise.reject('Credenciales invalidas')
             }
         })
         .catch(error =>{
-            return Promise.reject('Contraseña invalida')
+            return Promise.reject('Credenciales invalidas')
         })
     })
 ]

@@ -27,8 +27,8 @@ inputNombre.addEventListener('blur',function(){
             errorNombre.innerHTML = errores.nombre;
             this.classList.add('is-invalid');  
             break;
-        case this.value.trim().length > 45 : 
-            errores.nombre = "No puede superar los 45 caracteres";
+        case this.value.trim().length > 100 : 
+            errores.nombre = "No puede superar los 100 caracteres";
             errorNombre.innerHTML = errores.nombre;
             this.classList.add('is-invalid');  
             break; 
