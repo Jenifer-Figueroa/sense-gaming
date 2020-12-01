@@ -12,35 +12,53 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-end align-items-center">
-                <a href="/users/profile ">
-                    <h5 class="mr-2"><%= (locals.user)?locals.user.nick:"Invitado" %> </h5>
-                </a>
-                <% if (locals.user) { %>
-                <a href="/users/profile/ <% locals.user.id %> "><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px" height="50px"
-                        class="avatar"></a>
-                <% } else{%>
-                <a href="/users/profile"><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
-                <% } %>
-            </div>
+    <div class="collapse navbar-collapse navegador row" id="navbarSupportedContent">
 
-            <ul class="usuario navbar-nav">
-                <% if (typeof user == "undefined") { %>
-                <li class="nav-item active li">
-                    <a class="nav-link" href="/users/login">LOGIN</a>
-                </li>
-                <li class="nav-item active li">
-                    <a class="nav-link" href="/users/register">REGISTRO</a>
-                </li>
-                <li class="nav-item active li">
-                    <a class="nav-link" href="/carrito">MIS COMPRAS</a>
-                </li>
+        <!--Avatar-->
+       <div class="col-12" > 
+            <ul class="navbar-nav mr-auto">
+                <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-end align-items-center">
+                    <a href="/users/profile ">
+                    <h5 class="mr-2"><%= (locals.user)?locals.user.nick:"Invitado" %> </h5>
+                    </a>
+                    <% if (locals.user) { %>
+                    <a href="/users/profile/ <% locals.user.id %> "><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px" height="50px"
+                        class="avatar"></a>
+                    <% } else{%>
+                    <a href="/users/profile"><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+                    <% } %>
+                </div>
+            </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-4 admin">
+            <ul class="usuario navbar-nav ">
+             <% if (typeof user == "undefined") { %>
+
+                <div>
+                        <li class="nav-item active li">
+                            <a class="nav-link" href="/users/login">LOGIN</a>
+                        </li>
+                        <li class="nav-item active li">
+                            <a class="nav-link" href="/users/register">REGISTRO</a>
+                        </li>
+                        <li class="nav-item active li">
+                            <a class="nav-link" href="/carrito">MIS COMPRAS</a>
+                        </li>
+                </div>
+        
+                
+
                 <% }else if(locals.user.rol == "admin"){ %>
-                    <li class="nav-item active li">
-                        <a class="nav-link" href="/users/logout">CERRAR SESION</a>
+
+            
+                <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-end align-items-center">
+                    <li class="nav-item active li ">
+                        <a class="nav-link col-12" href="/users/logout">CERRAR SESION</a>
                     </li>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-end align-items-center colap">
                     <li class="nav-item active">
                         <div class="btn-group">
                             <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
@@ -53,8 +71,17 @@
                             </div>
                         </div>
                     </li>
+                </div>
+
+
+                
+
+                    
+        
+        
                     <!--USUARIO-->
                     <% }else { %>
+             <div>           
                         <li class="nav-item active">
                             <a class="nav-link" href="/users/logout">CERRAR SESION</a>
                         </li>
@@ -65,17 +92,21 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/carrito">MIS COMPRAS</a>
                         </li>
+            </div>          
                     <% } %>
             </ul>
+        </div>
 
             
             
-        </ul>
+       <!--search--> 
+        <div class="col-12 col-md-4 col-lg-4 admin">
+            <form action="/products/search" method="GET" class="form-inline my-2 my-lg-0" id="formulario">
+            <input class="form-control col-8" type="text" name="search" placeholder="Buscar" aria-label="Search" id="search">
+            <button class="btn btn-outline-danger .text-danger col-4" type="submit" id="boton">BUSCAR</button>
+            </form>
+        </div>
 
-        <form action="/products/search" method="GET" class="form-inline my-2 my-lg-0" id="formulario">
-            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search" id="search">
-            <button class="btn btn-outline-danger my-2 my-sm-0 .text-danger" type="submit" id="boton">BUSCAR</button>
-        </form>
     </div>
 </nav>
 

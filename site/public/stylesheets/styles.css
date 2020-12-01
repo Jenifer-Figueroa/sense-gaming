@@ -355,3 +355,26 @@ input{
   height: 50px;
  font-size: 17px!important;
 }
+
+/*header*/
+.navegador{
+  display: flex;
+
+}
+.colap{
+  margin-top: 5px;
+}
+input#search{
+ width: 130.98px;
+}
+
+
+/*MEDIDA PARA TABLET*/
+@media(min-width:768px){
+
+}
+
+/*MEDIDA PARA PC*/
+@media(min-width:1024px){
+
+}

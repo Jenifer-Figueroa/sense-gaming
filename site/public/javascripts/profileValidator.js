@@ -68,9 +68,9 @@ inputDireccion.addEventListener('blur', function(){
 
             console.log(this.elements)
 
-            for(let i = 0 ; i<elementosForm.length-3; i++){
+            for(let i = 0 ; i<elementosForm.length-2; i++){
         
-                if (elementosForm[i].value == "" &&  i !=4 && i !=5 && i !=6 ){
+                if (elementosForm[i].value == "" &&  i !=0 && i !=1 && i !=2 && i !=3){
                     elementosForm[i].classList.add('is-invalid');
                     msgError.innerHTML = "Los campos son obligatorios"
                     error = true
