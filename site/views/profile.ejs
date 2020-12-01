@@ -32,7 +32,7 @@
 
                         <div class="col-12 col-md-4 mt-3 d-flex flex-column align-items-center" id="perfil">
                           
-                          <img class="avatar" src="/images/users/<%= usuario.avatar %> " class="avatarImg" alt="avatar" width="75%"
+                            <img class="avatar" src="/images/users/<%= usuario.avatar %> " class="avatarImg" alt="avatar" width="75%"
                             style="object-fit: cover; object-position: top;">
                           
                             <div class="input-group mb-3">
@@ -46,52 +46,54 @@
 
                         <div class="col-12 col-md-8 ">
                           <div class="form-row mt-2">
-                            <div class="form-group col-12 col-md-6 ">
-                              <label for="inputNombre">Nombre</label>
-                              <input type="text" name="nombre" class="form-control" id="inputNombre"
+
+                              <div class="form-group col-12 col-md-6 ">
+                                <label for="inputNombre">Nombre</label>
+                                <input type="text" name="nombre" class="form-control" id="inputNombre"
                                 value= "<%= usuario.nombre %>" disabled>
-                            </div>
-                            <div class="form-group col-12 col-md-6">
-                              <label for="inputApellido">Apellido</label>
-                              <input type="text" name="apellido" class="form-control" id="inputApellido"
+                              </div>
+
+                              <div class="form-group col-12 col-md-6">
+                                <label for="inputApellido">Apellido</label>
+                                <input type="text" name="apellido" class="form-control" id="inputApellido"
                                 value="<%= usuario.apellido %>" disabled>
-                            </div>
-                            <div class="form-group col-12 col-md-6">
-                              <label for="imputEmail">Email</label>
-                              <input type="email" name="email" class="form-control" id="imputEmail"
+                              </div>
+
+                              <div class="form-group col-12 col-md-6">
+                                <label for="imputEmail">Email</label>
+                                <input type="email" name="email" class="form-control" id="imputEmail"
                                 value= "<%= usuario.email %>" disabled>
-                            </div>
+                              </div>
                             
-                            <div class="form-group col-12">
-                              <label for="inputAddress2">Dirección</label>
-                              <input type="text" name="direccion" class="form-control direccion <%= (typeof old != 'undefined' && old.direccion)?"is-valid":(typeof errors != 'undefined' && errors.direccion)?"is-invalid": ""  %>" id="inputAddress2"
+                              <div class="form-group col-12">
+                                <label for="inputAddress2">Dirección</label>
+                                <input type="text" name="direccion" class="form-control direccion <%= (typeof old != 'undefined' && old.direccion)?"is-valid":(typeof errors != 'undefined' && errors.direccion)?"is-invalid": ""  %>" id="inputAddress2"
                                 value="<%= usuario.direccion %>">
                                 <span id="errorDireccion" class="text-danger"><%= (typeof errors != 'undefined' && errors.direccion)?errors.direccion.msg: "" %></span>
-                            </div>
+                              </div>
 
-                            <div class="form-group col-12 col-md-6">
-                              <label for="imputLocalidad">Localidad</label>
-                              <input type="text" name="localidad" class="form-control localidad <%= (typeof old != 'undefined' && old.localidad)?"is-valid":(typeof errors != 'undefined' && errors.localidad)?"is-invalid": ""  %>" id="inputCiudad"
+                              <div class="form-group col-12 col-md-6">
+                                <label for="imputLocalidad">Localidad</label>
+                                <input type="text" name="localidad" class="form-control localidad <%= (typeof old != 'undefined' && old.localidad)?"is-valid":(typeof errors != 'undefined' && errors.localidad)?"is-invalid": ""  %>" id="inputCiudad"
                                 value="<%= usuario.localidad %>">
-                              
-                              <span id="errorLocalidad" class="text-danger"><%= (typeof errors != 'undefined' && errors.localidad)?errors.localidad.msg: "" %></span>
-                            </div>
+                                <span id="errorLocalidad" class="text-danger"><%= (typeof errors != 'undefined' && errors.localidad)?errors.localidad.msg: "" %></span>
+                              </div>
 
-                            <div class="form-group col-12 col-md-6">
-                              <label for="inputProvincia">Provincia</label>
-                              <input type="text" name="provincia" class="form-control provincia <%= (typeof old != 'undefined' && old.provincia)?"is-valid":(typeof errors != 'undefined' && errors.provincia)?"is-invalid": ""  %>" id="inputProvincia"
+                              <div class="form-group col-12 col-md-6">
+                                <label for="inputProvincia">Provincia</label>
+                                <input type="text" name="provincia" class="form-control provincia <%= (typeof old != 'undefined' && old.provincia)?"is-valid":(typeof errors != 'undefined' && errors.provincia)?"is-invalid": ""  %>" id="inputProvincia"
                                 value="<%= usuario.provincia %>">
-                              
-                              <span id="errorProvincia" class="text-danger"><%= (typeof errors != 'undefined' && errors.provincia)?errors.provincia.msg: "" %></span>
-                            </div>
+                                 <span id="errorProvincia" class="text-danger"><%= (typeof errors != 'undefined' && errors.provincia)?errors.provincia.msg: "" %></span>
+                              </div>
+
                           </div>
-                          </div>
+                        </div>
 
                           <div class="form-row d-flex justify-content-between">
                             <span id="msgError" class="text-danger"></span>
                           </div>
 
-                    </div>
+                        </div>
                           
 
                       
@@ -109,17 +111,19 @@
                               <button type="submit" class="btn-sm btn-primary m-1 bu">Actualizar datos</button>
                             </div>
 
-                            <div>
-                              <form action="/users/delete/<%= usuario.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn-sm btn-danger bu">Darse de baja</button>
-                              </form>
-                            </div>
+                            
                             
 
                           </div>
+
                         
-                      
+                      </div>
                       </form>
+                      <div>
+                        <form action="/users/delete/<%= usuario.id %>?_method=DELETE" method="POST">
+                          <button type="submit" class="btn-sm btn-danger bu">Darse de baja</button>
+                        </form>
+                      </div>
                 
                     
 
