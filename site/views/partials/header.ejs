@@ -1,7 +1,7 @@
 <!--header-->
 
 
- <header class="conteiner header">   
+ <header class="conteiner header" id="main-header">   
 <div class="conteiner-fluid">
 <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/">
@@ -28,17 +28,17 @@
 
             <ul class="usuario navbar-nav">
                 <% if (typeof user == "undefined") { %>
-                <li class="nav-item active">
+                <li class="nav-item active li">
                     <a class="nav-link" href="/users/login">LOGIN</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item active li">
                     <a class="nav-link" href="/users/register">REGISTRO</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item active li">
                     <a class="nav-link" href="/carrito">MIS COMPRAS</a>
                 </li>
                 <% }else if(locals.user.rol == "admin"){ %>
-                    <li class="nav-item active">
+                    <li class="nav-item active li">
                         <a class="nav-link" href="/users/logout">CERRAR SESION</a>
                     </li>
                     <li class="nav-item active">
@@ -88,9 +88,9 @@
     <a href="/perifericos" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">PERIFERICOS</a>
 
 
-    <div class="dropdown col-12 col-md-12 col-lg-2">
-        <div class="btn-group ">
-            <button type="button" class="btn btn-outline-danger dropdown-toggle " data-toggle="dropdown"
+    
+        
+            <button type="button" class="btn btn-outline-danger dropdown-toggle col-12 col-md-12 col-lg-2  " style="padding-left: 0px; padding-right: 0px;" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 MAS CATEGORIAS
             </button>
@@ -99,8 +99,8 @@
                 <a class="dropdown-item" href="/accesorios">ACCESORIOS</a>
                 <a class="dropdown-item" href="/monitores">MONITORES</a>
             </div>
-        </div>
-    </div>
+    
+    
 </nav>
 </div>
 </header>

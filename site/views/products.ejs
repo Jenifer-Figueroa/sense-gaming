@@ -3,7 +3,7 @@
 <%- include('partials/head') %> 
 <body>
     <%- include('partials/header') %> 
-    <section class=" conteiner-fluid principal">
+    <section class=" conteiner-fluid principal conte">
         <div class="container">
           <div>
               <div class="col-12 titulo">
@@ -18,9 +18,9 @@
                                   <div>
                                     <img class="card-img-top medida" src="/images/products/<%= producto.imagen %>" alt="Card image cap">
                                     <div class="card-body">
-                                      <h5 class="card-title"><%= producto.nombre %></h5>
+                                      <h3 class="card-title"><%= producto.nombre %></h3>
         
-                                      <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger">VER</a>
+                                      <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger ver">VER</a>
                                     </div>
                                   </div>
                                   </div>

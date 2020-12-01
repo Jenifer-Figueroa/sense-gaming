@@ -1,22 +1,27 @@
 const db =require('../database/models')
 
-const {check,body} = require('express-validator');
+const {check,validationResult,body} = require('express-validator');
 const bcrypt = require('bcrypt');
 
 module.exports = [
 
     check('direccion')
     .isLength({
-        min:1
-    }),
+        min:2
+    })
+    .withMessage('Debes ingresar tu direccion'),
+
     check('localidad')
     .isLength({
-        min:1
-    }),
+        min:2
+    })
+    .withMessage('Debes ingresar tu localidad'),
+
     check('provincia')
     .isLength({
-        min:1
-    }),
+        min:2
+    })
+    .withMessage('Debes ingresar tu provincia'),
     
 
 
@@ -25,7 +30,7 @@ module.exports = [
 
 
    //no se puede usar todavia la actualizacion de contraseña// 
-    body('password')
+  /*  body('password')
     .custom(function(value,{req}){
         return db.Users.findByPk(req.session.user.id)
         .then(user =>{
@@ -58,5 +63,5 @@ module.exports = [
         }
         return true
     })
-    .withMessage("Las constraseñas no coiciden")
+    .withMessage("Las constraseñas no coiciden")*/
 ]

@@ -98,25 +98,29 @@ module.exports ={
         
     },
     profileEdit: function (req, res) {
-        let errors = validationResult(req);
-        if(errors.isEmpty()){
+    let errors = validationResult(req);
+    if(errors.isEmpty()){
 
         db.Users.update({
             avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar,
             direccion:req.body.direccion,
             localidad:req.body.localidad,
-            provincia:req.body.provincia,
-            password:bcrypt.hashSync(req.body.pass,10)
+            provincia:req.body.provincia
         },
-        {
+            {
             where:{
                 id: req.params.id
             }
-    })
-    .then(user=>{
-        console.log(user)
-        return  res.redirect('/users/profile')
-    })
+            })
+        .then(user=>{
+            console.log(user)
+        req.session.user.avatar = (req.files[0])?req.files[0].filename:req.session.user.avatar,
+        req.session.user.direccion = req.body.direccion,
+        req.session.user.localidad = req.body.localidad,
+        req.session.user.provincia = req.body.provincia,
+        res.redirect('/users/profile')
+        })
+
         }else{
             db.Users.findByPk(req.session.user.id)
             .then(user=>{
@@ -124,7 +128,7 @@ module.exports ={
                     title:"Perfil de usuario",
                     usuario: user ,
                     errors:errors.mapped(),
-                old:req.body 
+                    old:req.body 
                 })
             })
     

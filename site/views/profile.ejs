@@ -6,27 +6,19 @@
 
 <body>
   <%- include('partials/header') %>
-  <div class="container">
+  <div class="container conte">
     <section class="perfilUsuario">
       <div class="row principal">
 
         <div class="titulo col-12">
-          <h2>
-            <%= title %>
-          </h2>
+          <h1>PERFIL DE USUARIO</h1>
         </div>
         <div class="col-12">
 
           <div class="contenido">
 
 
-            <ul class="nav nav-tabs " id="myTab" role="tablist">
-              <li class="nav-item " role="presentation">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#datos" role="tab" aria-controls="home"
-                  aria-selected="true">Mis Datos</a>
-              </li>
-             
-            </ul>
+            <h1>MIS DATOS</h1>
             <div class="tab-content" id="myTabContent">
 
               <div class="tab-pane fade show active p-4" id="datos" role="tabpanel" aria-labelledby="home-tab">
@@ -37,15 +29,21 @@
                       enctype="multipart/form-data">
 
                       <div class="form-row">
-                        <div class="col-12 col-md-4 mt-3 d-flex flex-column align-items-center">
+
+                        <div class="col-12 col-md-4 mt-3 d-flex flex-column align-items-center" id="perfil">
                           
                           <img class="avatar" src="/images/users/<%= usuario.avatar %> " class="avatarImg" alt="avatar" width="75%"
                             style="object-fit: cover; object-position: top;">
                           
-                          <div class="form-group w-75">
-                            <input type="file" class="form-control" id="avatarImput" name="avatar">
-                          </div>
+                            <div class="input-group mb-3">
+                              
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="avatar">
+                                <label class="custom-file-label" for="inputGroupFile01">Buscar</label>
+                              </div>
+                            </div>
                         </div>
+
                         <div class="col-12 col-md-8 ">
                           <div class="form-row mt-2">
                             <div class="form-group col-12 col-md-6 ">
@@ -66,61 +64,32 @@
                             
                             <div class="form-group col-12">
                               <label for="inputAddress2">Dirección</label>
-                              <input type="text" name="direccion" class="form-control" id="inputAddress2"
+                              <input type="text" name="direccion" class="form-control <%= (typeof old != 'undefined' && old.direccion)?"is-valid":(typeof errors != 'undefined' && errors.direccion)?"is-invalid": ""  %>" id="inputAddress2"
                                 value="<%= usuario.direccion %>">
-                                <span id="errorDireccion" class="text-danger"></span>
+                                <span id="errorDireccion" class="text-danger"><%= (typeof errors != 'undefined' && errors.direccion)?errors.direccion.msg: "" %></span>
                             </div>
 
                             <div class="form-group col-12 col-md-6">
                               <label for="imputLocalidad">Localidad</label>
-                              <input type="text" name="localidad" class="form-control localidad" id="inputCiudad"
+                              <input type="text" name="localidad" class="form-control localidad <%= (typeof old != 'undefined' && old.localidad)?"is-valid":(typeof errors != 'undefined' && errors.localidad)?"is-invalid": ""  %>" id="inputCiudad"
                                 value="<%= usuario.localidad %>">
                               <select class="form-control" id="ciudadSelect" style="display: none;"></select>
-                              <span id="errorLocalidad" class="text-danger"></span>
+                              <span id="errorLocalidad" class="text-danger"><%= (typeof errors != 'undefined' && errors.localidad)?errors.localidad.msg: "" %></span>
                             </div>
 
                             <div class="form-group col-12 col-md-6">
                               <label for="inputProvincia">Provincia</label>
-                              <input type="text" name="provincia" class="form-control" id="inputProvincia"
+                              <input type="text" name="provincia" class="form-control <%= (typeof old != 'undefined' && old.provincia)?"is-valid":(typeof errors != 'undefined' && errors.provincia)?"is-invalid": ""  %>" id="inputProvincia"
                                 value="<%= usuario.provincia %>">
                               <select class="form-control" id="provinciaSelect" style="display: none;">
                               </select>
-                              <span id="errorProvincia" class="text-danger"></span>
+                              <span id="errorProvincia" class="text-danger"><%= (typeof errors != 'undefined' && errors.provincia)?errors.provincia.msg: "" %></span>
                             </div>
                           </div>
-
-                         
-                          <!--Actualizar contraseña-->
-                          <!--contraseña actual-->
-                           <!--
-                          <div class="form-label-group">
-                            <h4>Cambiar contraseña</h4>
-                            <label for="password">Contraseña actual</label>
-                                <input type="password" class="form-control password <%= (typeof errors != 'undefined' && errors.password)?"is-invalid":'' %>" id="password" placeholder="contraseña" name="password">
-                                <small id="errorPassword" class="text-danger"><%= (typeof errors != 'undefined' && errors.password)?errors.password.msg: "" %> </small>
                           </div>
-                          <!--nueva contraseña-->
-                          <!--
-                                <div class="form-label-group">
-                            <label for="pass2">Nueva contraseña</label>
-                            <input type="password"
-                              class="form-control password <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid": ""  %>"
-                              id="pass" placeholder="Contraseña" name="pass" />
-                            <small
-                            id="errorPassword" class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %>
-                            </small>
-                        </div>
-                        
-                        <div class="form-label-group">
-                          <label for="pass2">Confirmar Contraseña</label>
-                            <input type="password"
-                              class="form-control <%= (typeof errors != 'undefined' && errors.pass2)?"is-invalid": ""  %>"
-                              id="pass2" placeholder="ingresar contraseña" name="pass2" />
-                            <small
-                            id="errorPassword2" class="text-danger"><%= (typeof errors != 'undefined' && errors.pass2)?errors.pass2.msg: "" %>
-                            </small>
-                        </div>-->
-                        
+
+                    </div>
+                          
 
                       
 
@@ -134,20 +103,22 @@
                             <button type="submit" class="btn-sm btn-primary m-1">Actualizar datos</button>
                           </div>
 
+                          <div class="col-12 col-md-4 d-flex justify-content-center">
+                            <form action="/users/delete/<%= usuario.id %>?_method=DELETE" method="POST">
+                              <button type="submit" class="btn-sm btn-danger">Darse de baja</button>
+                            </form>
                           </div>
-                        </div>
-                      </div>
-                    </form>
-                
-                    <div class="col-12 col-md-4 d-flex justify-content-center">
-                      <form action="/users/delete/<%= usuario.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn-sm btn-danger">Darse de baja</button>
+
+                          </div>
+                        
+                      
                       </form>
-                    </div>
+                
+                    
 
                  
 
-                  </div>
+                  
 
                 
              

@@ -1,8 +1,8 @@
 window.addEventListener('load', function(){
     
     
-    let inputEmail = document.querySelector('#exampleInputEmail1')
-    let inputPassword= document.querySelector('#exampleInputPassword1')
+    let inputEmail = document.querySelector('.email')
+    let inputPassword= document.querySelector('.password')
 
     let errores = {}
 

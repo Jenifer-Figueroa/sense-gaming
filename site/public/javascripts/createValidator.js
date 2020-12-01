@@ -5,7 +5,7 @@ let inputNombre=document.querySelector('#nombre')
 let inputCategoria= document.querySelector('#categoria')
 let inputPrecio = document.querySelector('#precio')
 let inputDescripcion = document.querySelector('#descripcion')
-let inputImagen = document.querySelector('#imagen')
+let inputImagen = document.querySelector('.imagen')
 
 let formulario = document.querySelector('#productAdd')
 
@@ -140,6 +140,9 @@ formulario.addEventListener('submit', function(e){
         formulario.submit()
     }
 })
+
+
+
 
 
 

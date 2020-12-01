@@ -1,16 +1,19 @@
 <%-include("./partials/head.ejs") %> 
-<%-include("./partials/header.ejs") %> 
 <script src="/javascripts/createValidator.js"></script>
+<%-include("./partials/header.ejs") %> 
+
+
 
 <body>
 
-  <section class="container-fluid">
+  <section class="container-fluid conte">
     <div class="container">
       <div class="row">
         <div class= 'col-12 col-md-10 col-lg-8 formulario'>
            <h2 class="agregar"><%= title %> </h2>
 
            <form action="/products/add" method="POST" enctype="multipart/form-data" id="productAdd">
+            <div>
 
             <div class="form-row">
 
@@ -58,8 +61,13 @@
             <div class="form-row">
                 <div class="form-group col-12 col-xl-6">
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input " id="imagen" lang="en" name="imagen">
-                      <label class="custom-file-label" for="customFileLang">Imagenes</label>
+                      <div class="input-group mb-3">
+                              
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input imagen" id="file" aria-describedby="inputGroupFileAddon01" name="imagen">
+                          <label class="custom-file-label" for="inputGroupFile01">imagenes</label>
+                        </div>
+                      </div>
                       <span id="errorImagen" class="text-danger"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %></span>
                     </div>
                   </div>
@@ -77,6 +85,10 @@
     
             
             </div>
+            </div>
+
+            
+          
           </form>
 
       </div>    
