@@ -6,12 +6,13 @@ const registerValidator = require('../validations/registerValidator');
 const upImagesUsers = require('../middlewares/upImagesUsers');
 const mwUser = require('../middlewares/mwUser');
 const userUpdateValidator = require('../validations/userUpdateValidator')
+const md = require('../middlewares/md')
 
 
-router.get('/register', userController.register);
+router.get('/register',md, userController.register);
 router.post('/register', upImagesUsers.any(),registerValidator, userController.processRegister);
 
-router.get('/login', userController.login);
+router.get('/login',md, userController.login);
 router.post('/login', loginValidator, userController.processLogin);
 
 router.get('/profile',mwUser, userController.profile);

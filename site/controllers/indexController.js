@@ -28,7 +28,7 @@ module.exports={
         .then(producto =>{
             res.render('products',{
                 productos:producto,
-                title: "Teclados"
+                title: "TECLADOS"
             })
         })
     }),
@@ -42,7 +42,7 @@ module.exports={
         .then(producto =>{
             res.render('products',{
                 productos:producto,
-                title: "Software"
+                title: "SOFTWARE"
             })
         })
     }),
@@ -56,7 +56,7 @@ module.exports={
         .then(producto =>{
             res.render('products',{
                 productos:producto,
-                title: "Notebook"
+                title: "NOTEBOOK"
             })
         })
     }),
@@ -70,7 +70,7 @@ module.exports={
         .then(producto =>{
             res.render('products',{
                 productos:producto,
-                title: "Perifericos"
+                title: "PERIFERICOS"
             })
         })
     }),
@@ -84,7 +84,7 @@ module.exports={
         .then(producto =>{
             res.render('products',{
                 productos:producto,
-                title: "Impresoras"
+                title: "IMPRESORAS"
             })
         })
     }),
@@ -98,7 +98,7 @@ module.exports={
         .then(producto =>{
             res.render('products',{
                 productos:producto,
-                title: "Accesorios"
+                title: "ACCESORIOS"
             })
         })
     }),
@@ -112,7 +112,7 @@ module.exports={
         .then(producto =>{
             res.render('products',{
                 productos:producto,
-                title: "Monitores"
+                title: "MONITORES"
             })
         })
     })

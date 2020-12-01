@@ -3,9 +3,9 @@ window.addEventListener('load', function(){
 
 let formulario = document.querySelector('.form')
  
-let inputDireccion = document.querySelector('#inputAddress2')
+let inputDireccion = document.querySelector('.direccion')
 let inputLocalidad = document.querySelector('.localidad')
-let inputProvincia = document.querySelector('#inputProvincia')
+let inputProvincia = document.querySelector('.provincia')
 
 
 let errores={}
@@ -13,11 +13,7 @@ let errores={}
 inputDireccion.addEventListener('blur', function(){
 
     switch(true){
-        case this.value === "" :
-        errores.nombre = "El campo dirección es obligatorio";
-        errorDireccion.innerHTML = errores.nombre;
-        this.classList.add('is-invalid')
-        break;
+        
         case this.value.trim().length < 3 :
         errores.nombre = "Tenes que poner al menos 3 caracteres";
         errorDireccion.innerHTML = errores.nombre;
@@ -31,14 +27,10 @@ inputDireccion.addEventListener('blur', function(){
     }
 })
 
-inputLocalidad.addEventListener('blur', function(){
+    inputLocalidad.addEventListener('blur', function(){
 
     switch(true){
-        case this.value === "" :
-        errores.nombre = "El campo localidad es obligatorio";
-        errorLocalidad.innerHTML = errores.nombre;
-        this.classList.add('is-invalid')
-        break;
+        
         case this.value.trim().length < 3 :
         errores.nombre = "Tenes que poner al menos 3 caracteres";
         errorLocalidad.innerHTML = errores.nombre;
@@ -55,11 +47,7 @@ inputLocalidad.addEventListener('blur', function(){
     inputProvincia.addEventListener('blur', function(){
 
         switch(true){
-            case this.value === "" :
-            errores.nombre = "El campo provincia es obligatorio";
-            errorProvincia.innerHTML = errores.nombre;
-            this.classList.add('is-invalid')
-            break;
+            
             case this.value.trim().length < 3 :
             errores.nombre = "Tenes que poner al menos 3 caracteres";
             errorProvincia.innerHTML = errores.nombre;
@@ -72,6 +60,27 @@ inputLocalidad.addEventListener('blur', function(){
                 
         }
         });
+
+        formulario.addEventListener('submit', function(e){
+            e.preventDefault();
+            let error = false;
+            let elementosForm = this.elements;
+
+            console.log(this.elements)
+
+            for(let i = 0 ; i<elementosForm.length-3; i++){
+        
+                if (elementosForm[i].value == "" &&  i !=4 && i !=5 && i !=6 ){
+                    elementosForm[i].classList.add('is-invalid');
+                    msgError.innerHTML = "Los campos son obligatorios"
+                    error = true
+                }
+                
+            }
+            if(!error){
+                formulario.submit()
+            }
+        })
 
 
 

@@ -7,21 +7,21 @@ module.exports = [
 
     check('direccion')
     .isLength({
-        min:2
+        min:3
     })
-    .withMessage('Debes ingresar tu direccion'),
+    .withMessage('Tenes que poner al menos 3 caracteres'),
 
     check('localidad')
     .isLength({
-        min:2
+        min:3
     })
-    .withMessage('Debes ingresar tu localidad'),
+    .withMessage('Tenes que poner al menos 3 caracteres'),
 
     check('provincia')
     .isLength({
-        min:2
+        min:3
     })
-    .withMessage('Debes ingresar tu provincia'),
+    .withMessage('Tenes que poner al menos 3 caracteres'),
     
 
 
