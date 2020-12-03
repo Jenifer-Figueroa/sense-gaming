@@ -15,8 +15,6 @@ window.addEventListener('load', function(){
             formulario.submit()
         }
     })
-    disabled.addEventListener('click', function(e){
-        e.preventDefault()
-    })
+    
     
 })

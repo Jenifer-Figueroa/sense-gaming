@@ -115,5 +115,47 @@ module.exports={
                 title: "MONITORES"
             })
         })
+    }),
+    hogarEmpresa:((req,res,next)=>{
+
+        db.Products.findAll({
+            where:{
+                id_categoria : [8,3,6]
+            }
+        })
+        .then(producto =>{
+            res.render('products',{
+                productos:producto,
+                title: "HOGAR Y EMPRESA"
+            })
+        })
+    }),
+    gaming:((req,res,next)=>{
+
+        db.Products.findAll({
+            where:{
+                id_categoria : [14,13]
+            }
+        })
+        .then(producto =>{
+            res.render('products',{
+                productos:producto,
+                title: "GAMING"
+            })
+        })
+    }),
+    entretenimiento:((req,res,next)=>{
+
+        db.Products.findAll({
+            where:{
+                id_categoria : 15
+            }
+        })
+        .then(producto =>{
+            res.render('products',{
+                productos:producto,
+                title: "ENTRETENIMIENTO"
+            })
+        })
     })
 }

@@ -76,7 +76,7 @@
                       <label class="custom-file-label" for="customFileLang">Seleccionar
                         Archivo</label>
                       <small
-                      id="errorAvatar" class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %>
+                      id="errorAvatar" class="text-danger"><%= (typeof errors != 'undefined' && errors.avatar)?error.avatar.msg: "" %>
                       </small>
 
                       <div class="d-flex justify-content-center">

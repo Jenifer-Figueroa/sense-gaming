@@ -12,5 +12,8 @@ router.get('/perifericos', indexC.perifericos)
 router.get('/impresoras', indexC.impresoras)
 router.get('/accesorios', indexC.accesorios)
 router.get('/monitores', indexC.monitores)
+router.get('/hogar-empresa', indexC.hogarEmpresa)
+router.get('/gaming', indexC.gaming)
+router.get('/entretenimiento',indexC.entretenimiento)
 
 module.exports = router;

@@ -12,7 +12,7 @@ module.exports= (sequelize,dataTypes)=>{
             autoIncrement: true
         },
         nombre:{
-            type: dataTypes.STRING(100),
+            type: dataTypes.STRING(200),
             allowNull:false
         },
         precio:{
@@ -20,7 +20,7 @@ module.exports= (sequelize,dataTypes)=>{
             allowNull:false,
         },
         descripcion:{
-            type: dataTypes.STRING(400),
+            type: dataTypes.STRING(1000),
             allowNull:false
         },
         imagen:{

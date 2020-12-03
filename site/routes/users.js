@@ -16,7 +16,7 @@ router.get('/login',md, userController.login);
 router.post('/login', loginValidator, userController.processLogin);
 
 router.get('/profile',mwUser, userController.profile);
-router.put('/profileEdit/:id', upImagesUsers.any(),userUpdateValidator, userController.profileEdit)
+router.put('/profileEdit/:id', upImagesUsers.any(), userController.profileEdit)
 
 router.get('/logout',mwUser, userController.logout);
 

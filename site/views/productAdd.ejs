@@ -9,7 +9,7 @@
   <section class="container-fluid conte">
     <div class="container">
       <div class="row">
-        <div class= 'col-12 col-md-10 col-lg-8 formulario'>
+        <div class= 'col-12 col-md-12 col-lg-6 formulario'>
            <h2 class="agregar"><%= title %> </h2>
 
            <form action="/products/add" method="POST" enctype="multipart/form-data" id="productAdd">
@@ -71,10 +71,8 @@
                       <span id="errorImagen" class="text-danger"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %></span>
                     </div>
                   </div>
-
-                  
-
             </div>
+            
             <div class="form-row d-flex justify-content-between">
               <span id="msgError" class="text-danger"></span>
             </div>
@@ -86,8 +84,12 @@
             
             </div>
             </div>
-
-            
+            <!--vista previa de imagen-->
+            <div class="col-12 col-md-12 col-lg-6">
+            <div class="d-flex justify-content-center ">
+              <img src="/images/vista previa.jpg" alt="" id="vistaPrevia" class="img-thumbnail producto">
+            </div>
+            </div>
           
           </form>
 

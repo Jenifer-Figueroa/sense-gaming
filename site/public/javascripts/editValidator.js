@@ -26,8 +26,8 @@ window.addEventListener('load', function(){
                 errorNombre.innerHTML = errores.nombre;
                 this.classList.add('is-invalid');  
                 break;
-            case this.value.trim().length > 45 : 
-                errores.nombre = "No puede superar los 45 caracteres";
+            case this.value.trim().length > 200 : 
+                errores.nombre = "No puede superar los 200 caracteres";
                 errorNombre.innerHTML = errores.nombre;
                 this.classList.add('is-invalid');  
                 break; 
@@ -103,7 +103,7 @@ window.addEventListener('load', function(){
                 errorDescripcion.innerHTML= ""
         }
     })
-    inputImagen.addEventListener('change', function(){
+    inputImagen.addEventListener('change', function(e){
         switch(true){
             case !regExExtensions.test(this.value):
                 errores.nombre = "Extension no valida";
@@ -113,7 +113,15 @@ window.addEventListener('load', function(){
             default:
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
-                errorImagen.innerHTML= ""
+                errorImagen.innerHTML=''
+                let reader = new FileReader();
+                reader.readAsDataURL(e.target.files[0]) 
+
+                reader.onload=function(){
+                vista.src= reader.result
+                }
+            
+                 break;
             
         }
     })

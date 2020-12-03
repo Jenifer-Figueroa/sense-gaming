@@ -37,11 +37,11 @@
                 <div class=" col-12 col-md-6 col-lg-4 card justify-content-center justify-content-md-start">
                     <div class="caja ">
                         <div>
-                            <img class="card-img-top medida" src="/images/products/<%= producto.imagen %>" alt="Card image cap">
+                            <a href="/products/detalle/<%= producto.id %> "><img class="card-img-top medida" src="/images/products/<%= producto.imagen %>" alt="Card image cap"></a>
                         <div class="card-body">
                             <h3 class="card-title"><%= producto.nombre %></h3>
 
-                            <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger " id="ver">VER</a>
+                            <a href="/products/detalle/<%= producto.id %> " class="btn btn-outline-danger ver" id="ver">VER</a>
                         </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                         <div class="card-body">
                             <h5 class="card-title">HOGAR Y EMPRESA</h5>
 
-                            <a href="/detalleProducto" class="btn btn-outline-danger disabled" >COMPRAR</a>
+                            <a href="/hogar-empresa" class="btn btn-outline-danger " >COMPRAR</a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
                         <div class="card-body">
                             <h5 class="card-title">ENTRETENIMIENTO</h5>
 
-                            <a href="/detalleProducto" class="btn btn-outline-danger disabled"  >COMPRAR</a>
+                            <a href="/entretenimiento" class="btn btn-outline-danger"  >COMPRAR</a>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                         <div class="card-body">
                             <h5 class="card-title">GAMING</h5>
 
-                            <a href="/detalleProducto" class="btn btn-outline-danger disabled" >COMPRAR</a>
+                            <a href="/gaming" class="btn btn-outline-danger" >COMPRAR</a>
                         </div>
                     </div>
                 </div>

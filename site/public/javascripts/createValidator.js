@@ -27,8 +27,8 @@ inputNombre.addEventListener('blur',function(){
             errorNombre.innerHTML = errores.nombre;
             this.classList.add('is-invalid');  
             break;
-        case this.value.trim().length > 100 : 
-            errores.nombre = "No puede superar los 100 caracteres";
+        case this.value.trim().length > 200 : 
+            errores.nombre = "No puede superar los 200 caracteres";
             errorNombre.innerHTML = errores.nombre;
             this.classList.add('is-invalid');  
             break; 
@@ -94,7 +94,7 @@ inputDescripcion.addEventListener('blur', function(){
             this.classList.add('is-invalid')
             break; 
         case this.value.length >400 :
-            errores.nombre = "No puede superar los 400 caracteres";
+            errores.nombre = "No puede superar los 1000 caracteres";
             errorDescripcion.innerHTML = errores.nombre;
             this.classList.add('is-invalid')
             break;
@@ -104,7 +104,7 @@ inputDescripcion.addEventListener('blur', function(){
             errorDescripcion.innerHTML= ""
     }
 })
-inputImagen.addEventListener('blur', function(){
+inputImagen.addEventListener('change', function(e){
     switch(true){
         case this.value === "" :
             errores.nombre = "Debe cargar una imagen";
@@ -115,11 +115,20 @@ inputImagen.addEventListener('blur', function(){
             errores.nombre = "Extension no valida";
             errorImagen.innerHTML = errores.nombre;
             this.classList.add('is-invalid')
+            
             break; 
         default:
             this.classList.remove('is-invalid');
             this.classList.add('is-valid');
-            errorImagen.innerHTML= ""
+            errorImagen.innerHTML=''
+            let reader = new FileReader();
+            reader.readAsDataURL(e.target.files[0]) 
+
+            reader.onload=function(){
+                vistaPrevia.src= reader.result
+            }
+            
+            break;
         
     }
 })

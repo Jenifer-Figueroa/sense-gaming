@@ -252,6 +252,7 @@ body, .centrado{
 
 .detail{
     color: black;
+    font-size: 22px;
   }
 
 
@@ -355,6 +356,9 @@ input{
   height: 50px;
  font-size: 17px!important;
 }
+#ver{
+  border-color: #dc3545!important;
+}
 
 /*header*/
 .navegador{
@@ -365,16 +369,71 @@ input{
   margin-top: 5px;
 }
 input#search{
- width: 130.98px;
+ height: 37px;
+
 }
+a.a{
+  text-align: left!important;
+}
+.buscador{
+  margin-left: 5px;
+}
+.btn-outline-danger{
+  border-color:transparent!important;
+}
+/*creacion de productos*/
+.producto{
+  border-radius: 5px!important;
+  margin-top: 60px;
+  margin-left: 25px;
+  width: 550px;
+  height: 500px!important;
+  border: none!important;
+  
+
+}
+/*edicion*/
+#vista{
+  width: 450px!important;
+  height: 470px!important;
+}
+
 
 
 /*MEDIDA PARA TABLET*/
 @media(min-width:768px){
 
+  .avatar{
+    margin-bottom: 10px;
+  }
+
 }
 
 /*MEDIDA PARA PC*/
 @media(min-width:1024px){
-
+  .navegardor{
+    display: flex;
+   
+  }
+  div.row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  div ul{
+    display: flex;
+    flex-direction: row;
+  }
+  .navadmin{
+    margin-right: 0px!important;
+  }
+  .detalle{
+    height: 555px;
+  }
+  .carrito{
+    font-size: 18px;
+  }
+  .carrito2{
+    font-size: 22px;
+  }
+  
 }

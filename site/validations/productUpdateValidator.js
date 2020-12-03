@@ -8,7 +8,8 @@ module.exports =[
 
  check('nombre')
 .isLength({
-    min:4
+    min:4,
+    max:200
     })
 .withMessage('El nombre del producto tiene que tener mas de 4 caracteres'),
 
