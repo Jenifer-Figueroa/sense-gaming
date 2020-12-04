@@ -145,14 +145,20 @@ formulario.addEventListener('submit', function(e){
     let error = false;
     let elementosForm = this.elements;
     for(let i = 0 ; i<elementosForm.length-3; i++){
+        console.log(this.elements)
 
-        if (elementosForm[i].value == ""){
+        if (elementosForm[i].value == "" && i!=5){
             elementosForm[i].classList.add('is-invalid');
             msgError.innerHTML = "Los campos son obligatorios"
             error = true
         }
     }
     if(!error){
+        Swal.fire(
+            '¡Bienvenido!',
+            'Te registraste con exito',
+            'success'
+        )
         formulario.submit()
     }
 })

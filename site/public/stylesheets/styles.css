@@ -397,6 +397,17 @@ a.a{
   width: 450px!important;
   height: 470px!important;
 }
+.iconos i{
+  width: 35px!important;
+  height: 35px!important;
+}
+.info{
+  font-size: 20px;
+}
+.t{
+  font-size: 20px;
+}
+
 
 
 
@@ -406,7 +417,13 @@ a.a{
   .avatar{
     margin-bottom: 10px;
   }
+  .av{
+    margin-left: 270px!important;
+  }
 
+}
+.usuario{
+  margin-left: 10px!important;
 }
 
 /*MEDIDA PARA PC*/
@@ -428,12 +445,17 @@ a.a{
   }
   .detalle{
     height: 555px;
+    width: auto;
+    margin-left: 30px!important;
   }
   .carrito{
     font-size: 18px;
   }
   .carrito2{
     font-size: 22px;
+  }
+  .av{
+    margin-left: 0px!important;
   }
   
 }

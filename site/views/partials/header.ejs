@@ -11,7 +11,7 @@
     
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-4 col-lg-4 d-flex justify-content-center align-items-center av">
                     <a href="/users/profile ">
                         <h5 class="mr-2"><%= (locals.user)?locals.user.nick:"Invitado" %> </h5>
                     </a>
@@ -31,9 +31,7 @@
                     <li class="nav-item active li">
                         <a class="nav-link" href="/users/register">REGISTRO</a>
                     </li>
-                    <li class="nav-item active li">
-                        <a class="nav-link" href="/carrito">MIS COMPRAS</a>
-                    </li>
+                    
                     <% }else if(locals.user.rol == "admin"){ %>
                         <li class="nav-item active li">
                             <a class="nav-link" href="/users/logout">CERRAR SESION</a>
@@ -69,7 +67,7 @@
                 
             </ul>
     
-            <form action="/products/search" method="GET" class="form-inline my-2 my-lg-0" id="formulario">
+            <form action="/products/search" method="GET" class="form-inline my-2 my-lg-0" id="busca">
                 <input class="form-control col-8" type="text" name="search" placeholder="Search" aria-label="Search" id="search">
                 <button class="btn btn-outline-danger my-2 my-sm-0 .text-danger buscador" type="submit" id="boton">BUSCAR</button>
             </form>

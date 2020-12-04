@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <%- include('partials/head') %> 
-<body>
+
+    <script src="/javascripts/eliminar.js"></script>
+
     <%- include('partials/header') %> 
     <section class="conteiner-fluid principal conte">
         <div class="container">
@@ -34,8 +37,8 @@
                                 </form>
                                 
                                 <form action="/products/delete/<%= producto.id %>?_method=DELETE"
-                                method="POST">
-                                <button class="btn btn-outline-light" type="submit">
+                                method="POST" id="delete">
+                                <button class="btn btn-outline-light " type="submit">
                                     <h4 class="fas fa-trash-alt text-danger"></h4>
                                 </button>
                                 </form>

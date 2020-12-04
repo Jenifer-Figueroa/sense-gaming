@@ -134,7 +134,7 @@ module.exports={
 
         db.Products.findAll({
             where:{
-                id_categoria : [14,13]
+                id_categoria : [14,13,7]
             }
         })
         .then(producto =>{
