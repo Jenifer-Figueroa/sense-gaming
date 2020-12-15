@@ -32,13 +32,14 @@
                         <a class="nav-link" href="/users/register">REGISTRO</a>
                     </li>
                     
+                    <!--administradir-->
                     <% }else if(locals.user.rol == "admin"){ %>
                         <li class="nav-item active li">
                             <a class="nav-link" href="/users/logout">CERRAR SESION</a>
                         </li>
                         <li class="nav-item active">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown"
+                            <div class="btn-group b">
+                                <button type="button" class="btn btn-outline-danger dropdown-toggle badmin" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     ADMINISTRADOR
                                 </button>
@@ -53,10 +54,7 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="/users/logout">CERRAR SESION</a>
                             </li>
-                            <li class="nav-item active">
-                                
-                                <a class="nav-link" href="/products">PRODUCTOS</a>
-                            </li>
+                            
                             <li class="nav-item active">
                                 <a class="nav-link" href="/carrito">MIS COMPRAS</a>
                             </li>
@@ -66,16 +64,23 @@
                 
                 
             </ul>
-    
+
+            <!--Search-->
             <form action="/products/search" method="GET" class="form-inline my-2 my-lg-0" id="busca">
-                <input class="form-control col-8" type="text" name="search" placeholder="Search" aria-label="Search" id="search">
-                <button class="btn btn-outline-danger my-2 my-sm-0 .text-danger buscador" type="submit" id="boton">BUSCAR</button>
+                <div class="col-12 col-md-12 col-lg-12" style="display: flex;justify-content: center;align-items: center;">
+                <input class="form-control col-8 col-md-4 col-lg-6" type="text" name="search" placeholder="Buscador" aria-label="Search" id="search">
+                <button class="btn btn-outline-danger col-3 col-md-3 col-lg-4 text-danger buscador" type="submit" id="boton">BUSCAR</button>
+                </div>
             </form>
         </div>
     </nav>
     
-    <nav class="nav text-center">
     
+
+    <div id="header" class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 0px;"> 
+    <nav class="nav text-center col-lg-12 collapse navbar-collapse" id="navbarSupportedContent" style="padding: 0px;" >
+        <div class="navbar-nav mr-auto col-lg-12" style="padding: 0px;">
+
         <a href="/products" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">NUESTROS PRODUCTOS</a>
         <a href="/teclados" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">TECLADOS</a>
         <a href="/software" class="btn btn-outline-danger col-12 col-md-12 col-lg-2">SOFTWARE</a>
@@ -89,14 +94,16 @@
                     aria-haspopup="true" aria-expanded="false">
                     MAS CATEGORIAS
                 </button>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu" style="text-align: center;">
                     <a class="dropdown-item" href="/impresoras">IMPRESORAS</a>
                     <a class="dropdown-item" href="/accesorios">ACCESORIOS</a>
                     <a class="dropdown-item" href="/monitores">MONITORES</a>
                 </div>
-        
-        
+
+            </div>
     </nav>
+</div>
+
     </div>
     </header>
     

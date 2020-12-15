@@ -407,6 +407,17 @@ a.a{
 .t{
   font-size: 20px;
 }
+.b{
+  display: flex!important;
+}
+.badmin{
+ 
+justify-content: center;
+align-items: center;
+}
+
+
+
 
 
 
@@ -425,6 +436,20 @@ a.a{
 .usuario{
   margin-left: 10px!important;
 }
+#id{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.b{
+  display: flex!important;
+}
+.badmin{
+ 
+justify-content: center;
+align-items: center;
+}
+
 
 /*MEDIDA PARA PC*/
 @media(min-width:1024px){
@@ -457,5 +482,10 @@ a.a{
   .av{
     margin-left: 0px!important;
   }
+  .dropdown-menu{
+    left: auto!important;
+    right: 0px!important;
+  }
+  
   
 }

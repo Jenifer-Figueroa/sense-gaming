@@ -6,6 +6,7 @@ window.addEventListener('load', function(){
     let inputLocalidad = document.querySelector('.localidad')
     let inputProvincia = document.querySelector('.provincia')
     let inputAvatar = document.querySelector('#inputGroupFile01')
+    let eliminar = document.querySelector('#delete')
     
     let errores={}
     inputDireccion.addEventListener('blur', function(){
@@ -68,7 +69,7 @@ window.addEventListener('load', function(){
                 if(!error){
                     formulario.submit()
                 }
-            })
+            });
 
 
 
@@ -96,7 +97,31 @@ window.addEventListener('load', function(){
         
                     }  
                 }    
-            })
+            });
+
+            eliminar.addEventListener('click', function(e){
+                e.preventDefault()
+                Swal.fire({
+                        title: '¿Vas eliminar este usuario?',
+                        icon: '¡advertencia!',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si!'
+                    })
+                    .then((result)=>{
+                        if (result.isConfirmed) {
+                            Swal.fire(
+                                '¡Eliminado!',
+                                'Tu usuario fue eliminado.',
+                                'success'
+                            )
+                            .then(() => {
+                            eliminar.submit()
+                        })
+                        }
+                    })
+                })
 
 
     })
