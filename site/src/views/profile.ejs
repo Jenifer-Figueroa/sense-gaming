@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+<script src="/javascripts/profileValidator.js"></script>
+
+
+<body>
+  <%- include('partials/header') %>
+  <div class="container conte">
+    <section class="perfilUsuario">
+      <div class="row principal">
+
+        <div class="titulo col-12">
+          <h1>PERFIL DE USUARIO</h1>
+        </div>
+        <div class="col-12">
+
+          <div class="contenido">
+
+
+            <h1>MIS DATOS</h1>
+            <div class="tab-content" id="myTabContent">
+
+              <div class="tab-pane fade show active p-4" id="datos" role="tabpanel" aria-labelledby="home-tab">
+
+                
+               
+                    <form class="form" action="/users/profileEdit/<%= usuario.id %>?_method=PUT" method="POST"
+                      enctype="multipart/form-data">
+
+                      <div class="form-row">
+
+                        <div class="col-12 col-md-4 mt-3 d-flex flex-column align-items-center" id="perfil">
+                          
+                            <img class="avatar" src="/images/users/<%= usuario.avatar %> " class="avatarImg" alt="avatar" id="vistaPrevia" width="75%"
+                            style="object-fit: cover; object-position: top;" >
+                          
+                            <div class="input-group mb-3">
+                              
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="avatar" class="avatar">
+                                <label class="custom-file-label" for="inputGroupFile01">Buscar</label>
+                              </div>
+
+                              <span id="errorAvatar" class="text-danger"><%= (typeof errors != 'undefined' && errors.avatar)?errors.avatar.msg: "" %></span>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-8 ">
+                          <div class="form-row mt-2">
+
+                              <div class="form-group col-12 col-md-6 ">
+                                <label for="inputNombre">Nombre</label>
+                                <input type="text" name="nombre" class="form-control" id="inputNombre"
+                                value= "<%= usuario.nombre %>" disabled>
+                              </div>
+
+                              <div class="form-group col-12 col-md-6">
+                                <label for="inputApellido">Apellido</label>
+                                <input type="text" name="apellido" class="form-control" id="inputApellido"
+                                value="<%= usuario.apellido %>" disabled>
+                              </div>
+
+                              <div class="form-group col-12 col-md-6">
+                                <label for="imputEmail">Email</label>
+                                <input type="email" name="email" class="form-control" id="imputEmail"
+                                value= "<%= usuario.email %>" disabled>
+                              </div>
+                            
+                              <div class="form-group col-12">
+                                <label for="inputAddress2">Dirección</label>
+                                <input type="text" name="direccion" class="form-control direccion <%= (typeof old != 'undefined' && old.direccion)?"is-valid":(typeof errors != 'undefined' && errors.direccion)?"is-invalid": ""  %>" id="inputAddress2"
+                                value="<%= usuario.direccion %>">
+                                <span id="errorDireccion" class="text-danger"><%= (typeof errors != 'undefined' && errors.direccion)?errors.direccion.msg: "" %></span>
+                              </div>
+
+                              <div class="form-group col-12 col-md-6">
+                                <label for="inputProvincia">Provincia</label>
+                                <input type="text" name="provincia" class="form-control provincia <%= (typeof old != 'undefined' && old.provincia)?"is-valid":(typeof errors != 'undefined' && errors.provincia)?"is-invalid": ""  %>" id="inputProvincia"
+                                value="<%= usuario.provincia %>">
+                                <select class="form-control" id="provinciaSelect" style="display: none;">
+                                  <option value="">Seleccione su provincia...</option>
+                                </select>
+                                 <span id="errorProvincia" class="text-danger"><%= (typeof errors != 'undefined' && errors.provincia)?errors.provincia.msg: "" %></span>
+                              </div>
+
+                              <div class="form-group col-12 col-md-6">
+                                <label for="imputLocalidad">Localidad</label>
+                                <input type="text" name="localidad" class="form-control localidad <%= (typeof old != 'undefined' && old.localidad)?"is-valid":(typeof errors != 'undefined' && errors.localidad)?"is-invalid": ""  %>" id="inputCiudad"
+                                value="<%= usuario.localidad %>">
+                                <select class="form-control" id="localidadSelect" style="display: none;">
+                                  <option>Seleccione su localidad... </option>
+                                </select>
+                                <span id="errorLocalidad" class="text-danger"><%= (typeof errors != 'undefined' && errors.localidad)?errors.localidad.msg: "" %></span>
+                              </div>
+
+                              
+
+                          </div>
+                        </div>
+
+                          <div class="form-row d-flex justify-content-between">
+                            <span id="msgError" class="text-danger"></span>
+                          </div>
+
+                        </div>
+                          
+
+                      
+
+
+                          <div class="d-md-flex justify-content-end mt-5">
+
+                            <div>
+                              <button type="button" class="btn-sm btn-secondary m-1 bu" ><a href="/" class="text-light">Salir
+                                sin
+                                guardar</a></button>
+                            </div>
+
+                            <div>
+                              <button type="submit" class="btn-sm btn-primary m-1 bu">Actualizar datos</button>
+                            </div>
+
+                            
+                            
+                      
+
+                          </div>
+
+                        
+                      </div>
+                      </form>
+
+                      <div>
+                        <form action="/users/delete/<%= usuario.id %>?_method=DELETE" method="POST" >
+                          <button type="submit" class="btn-sm btn-danger bu" id="delete">Darse de baja</button>
+                        </form>
+                      </div>
+                      
+                    
+
+                 
+
+                  
+
+                
+             
+
+
+              <div class="tab-pane fade  " id="productos" role="tabpanel" aria-labelledby="profile-tab">
+
+                <div class="row principal p-4">
+
+                  <div class="col-12 col-md-4 col-xl-3">
+
+                    <div class="contenido">
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+
+  <%- include('partials/footer') %>
+
+</body>
+
+</html>
